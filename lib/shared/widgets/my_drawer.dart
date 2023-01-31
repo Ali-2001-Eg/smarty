@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/shared/cache_helper/cache_helper.dart';
 
 
 import '../route_helper/route_helper.dart';
@@ -16,27 +17,28 @@ class MyDrawer extends StatelessWidget {
   }
 }
 
-Widget myDrawer(context) {
+Widget myDrawer(context,{fromGetStarted=true}) {
   return Drawer(
+    backgroundColor: Colors.white.withAlpha(200),
     child: SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(top: 0),
         child: Column(
           children: [
             //profile
-            ListTile(
+            fromGetStarted?ListTile(
               dense: true,
               title: const Text("Profile"),
               leading: const Icon(Icons.person),
               onTap: () => Get.toNamed(RouteHelper.getAccountPage()),
-            ),
+            ):Container(),
             //Games
-            ListTile(
+            fromGetStarted?ListTile(
               dense: true,
               title: const Text("Games"),
               leading: const Icon(Icons.games),
               onTap: () => Get.toNamed(RouteHelper.getGamesPage()),
-            ),
+            ):Container(),
             //Chat
             ListTile(
               dense: true,
@@ -45,12 +47,12 @@ Widget myDrawer(context) {
               onTap: () => Get.toNamed(RouteHelper.getChatPage()),
             ),
             //Content
-            ListTile(
+            fromGetStarted?ListTile(
               dense: true,
               title: const Text("Educational Content"),
               leading: const Icon(Icons.menu_book),
               onTap: () => Get.toNamed(RouteHelper.getEducationalContentPage()),
-            ),
+            ):Container(),
             //Initial
             ListTile(
               dense: true,
@@ -64,6 +66,13 @@ Widget myDrawer(context) {
               title: const Text("Final Assessment Exam"),
               leading: const Icon(Icons.print),
               onTap: () => Get.toNamed(RouteHelper.getFinalAssessmentPage()),
+            ),
+            //Events
+            ListTile(
+              dense: true,
+              title: const Text("Events"),
+              leading: const Icon(Icons.event_available),
+              onTap: () => Get.toNamed(RouteHelper.getEventsPage()),
             ),
             //Settings
             ListTile(
@@ -92,11 +101,11 @@ Widget myDrawer(context) {
               child: CircleAvatar(
                 radius: 50,
                 backgroundImage:  AssetImage(
-                  'assets/images/img_1.png'
+                  'assets/images/logo.png'
                 ),
               ),
             ),
-             Text('Smarty',style: Theme.of(context).textTheme.headline4?.copyWith(color: Colors.grey),),
+             Text('Smarty',style: Theme.of(context).textTheme.headline4?.copyWith(color: const Color(0xffFEA633)),),
           ],
         ),
       ),

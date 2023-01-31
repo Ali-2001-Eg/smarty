@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/get_started/get_started_page.dart';
+import 'package:graduation_project/screens/auth/sign_in_page.dart';
+import 'package:graduation_project/shared/cache_helper/cache_helper.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
-import 'home/home_page.dart';
+import 'on_boarding/on_boarding_page.dart';
 
-void main() {
+PageController pageController = PageController(initialPage: 0);
+int currentIndex = 0;
+
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
+  //to remove local storage
+  /*
+  CacheHelper.clearData(key: 'token');
+  CacheHelper.clearData(key: 'onBoarding');
+  CacheHelper.clearData(key: 'getStarted');*/
   //to remove status bar
   SystemChrome.setEnabledSystemUIOverlays([
-    SystemUiOverlay.bottom, //This line is used for showing the bottom bar
+    SystemUiOverlay.bottom,
   ]);
+
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({Key? key}) : super(key: key);
+
+   MyApp({Key? key,}) : super(key: key);
 
 
   @override
@@ -23,7 +37,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E-Learning Platform for Children with Mental Disabilities',
-      // home:  HomePage(),
+      // home:  startWidget,
+      theme: ThemeData(
+
+      ),
       initialRoute: RouteHelper.getSplashPage(),
       getPages: RouteHelper.getRoutes(),
     );
