@@ -35,8 +35,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   flutter_launcher_icons: ^0.11.0
-
-
+  smooth_page_indicator: ^1.0.0+2
+  shared_preferences: ^2.0.15
+  animated_text_kit:
 
 
 dev_dependencies:

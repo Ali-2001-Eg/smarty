@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
+import '../../get_started/get_started_page.dart';
+import '../../on_boarding/on_boarding_page.dart';
+import '../../shared/cache_helper/cache_helper.dart';
+import '../auth/sign_in_page.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
+
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -25,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen>
         CurvedAnimation(curve: Curves.easeInToLinear, parent: controller);
     //after animation go to a next page directly
     Timer(const Duration(milliseconds: 2000),
-        () => Get.toNamed(RouteHelper.getInitialPage()));
+        () => goToWidget());
   }
 
   @override
@@ -49,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen>
               child: CircleAvatar(
                 radius: 100,
                 backgroundImage:  AssetImage(
-                  'assets/images/img_1.png'
+                  'assets/images/logo.png'
                 ),
               )
             ),
@@ -66,4 +73,26 @@ class _SplashScreenState extends State<SplashScreen>
       ),
     );
   }
+  //to dispose viewing some pages more than once
+  void goToWidget(){
+    bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
+    bool? token = CacheHelper.getData(key: 'token');
+    bool? getStarted = CacheHelper.getData(key: 'getStarted');
+//to determine which widget will start the app
+    if (onBoarding != null) {
+      if (token != null) {
+        if(getStarted!=null){
+          Get.offNamed(RouteHelper.getHomeLayout());
+        }else{
+          Get.offNamed(RouteHelper.getInitialPage());
+        }
+
+      } else {
+        Get.offNamed(RouteHelper.getSignInPage());
+      }
+    } else {
+      Get.offNamed(RouteHelper.getOnBoardingPage());
+    }
+  }
 }
+
