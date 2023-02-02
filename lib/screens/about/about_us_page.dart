@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
 import '../../shared/widgets/my_drawer.dart';
 
@@ -36,8 +38,9 @@ class _AboutUsPageState extends State<AboutUsPage>
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: myDrawer(context, fromGetStarted: false),
       appBar: AppBar(
+        leading: IconButton(onPressed: ()=>Get.back(),icon: Icon(Icons.arrow_back_ios,color: Colors.white70,),),
+        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xff1A3993),
         centerTitle: true,
         title: Text(
