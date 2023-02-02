@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:graduation_project/shared/route_helper/route_helper.dart';
 import 'package:graduation_project/shared/widgets/profile_menu.dart';
 import 'package:graduation_project/shared/widgets/profile_picture.dart';
+
+import '../cache_helper/cache_helper.dart';
 
 
 class ProfileBody extends StatelessWidget {
@@ -15,27 +19,42 @@ class ProfileBody extends StatelessWidget {
           ProfileMenu(
             text: "My Account",
             icon: Icons.person,
-            press: () => {},
+            press: () => {
+            Get.toNamed(RouteHelper.getAccountPage())
+          },
           ),
           ProfileMenu(
             text: "Notifications",
             icon: Icons.notifications_none,
-            press: () {},
+            press: () {
+              Get.toNamed(RouteHelper.getNotificationsPage());
+
+            },
           ),
           ProfileMenu(
             text: "Settings",
             icon: Icons.settings,
-            press: () {},
+            press: () {
+              Get.toNamed(RouteHelper.getSettingsPage());
+
+            },
           ),
           ProfileMenu(
             text: "Help Center",
             icon: Icons.question_mark,
-            press: () {},
+            press: () {
+              Get.toNamed(RouteHelper.getFeedbackPage());
+            },
           ),
           ProfileMenu(
             text: "Log Out",
             icon: Icons.logout,
-            press: () {},
+            press: () {
+              CacheHelper.clearData(key: 'token');
+              CacheHelper.clearData(key: 'onBoarding');
+              CacheHelper.clearData(key: 'getStarted');
+              Get.offAllNamed(RouteHelper.getSignInPage());
+            },
           ),
         ],
       ),
