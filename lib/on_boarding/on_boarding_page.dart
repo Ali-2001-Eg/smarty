@@ -136,7 +136,7 @@ Widget buildBoardingItem(BoardingModel model,context) => Column(
       children: [
         Expanded(
           child: Container(
-            height: MediaQuery.of(context).size.height/3,
+
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
             image:  DecorationImage(
