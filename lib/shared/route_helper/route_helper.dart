@@ -151,6 +151,9 @@ class RouteHelper {
     GetPage(
         name: homeLayout,
         page: () => const HomeLayoutPage(),
+        transition: Transition.fade), GetPage(
+        name: homeLayout,
+        page: () => const HomeLayoutPage(),
         transition: Transition.fade),
   ];
 
