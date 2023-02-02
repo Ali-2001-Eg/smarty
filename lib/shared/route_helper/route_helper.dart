@@ -142,6 +142,11 @@ class RouteHelper {
         name: homeLayout,
         page: () => const HomeLayoutPage(),
         transition: Transition.fade),
+    //profile
+    GetPage(
+        name: homeLayout,
+        page: () => const HomeLayoutPage(),
+        transition: Transition.fade),
   ];
 
   static List<GetPage> getRoutes() => routes;
