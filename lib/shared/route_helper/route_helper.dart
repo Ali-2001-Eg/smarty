@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
-import 'package:graduation_project/screens/account/account_page.dart';
+import 'package:graduation_project/screens/profile/notification_page.dart';
+import 'package:graduation_project/screens/profile/profile_page.dart';
 import 'package:graduation_project/screens/assessment_exams/final_assessment_page.dart';
 import 'package:graduation_project/screens/assessment_exams/initial_assessment_page.dart';
 import 'package:graduation_project/screens/auth/forgot_password.dart';
@@ -11,10 +12,10 @@ import 'package:graduation_project/screens/auth/sign_up_page.dart';
 import 'package:graduation_project/screens/chat/chat_page.dart';
 import 'package:graduation_project/screens/content/content_page.dart';
 import 'package:graduation_project/screens/events/events.dart';
-import 'package:graduation_project/screens/feedback/feedback_page.dart';
+import 'package:graduation_project/screens/profile/feedback_page.dart';
 import 'package:graduation_project/screens/games/games_page.dart';
 import 'package:graduation_project/screens/home/home_page.dart';
-import 'package:graduation_project/screens/settings/settings_page.dart';
+import 'package:graduation_project/screens/profile/settings_page.dart';
 import 'package:graduation_project/screens/spalsh/splash_screen.dart';
 
 import '../../get_started/get_started_page.dart';
@@ -37,6 +38,8 @@ class RouteHelper {
   static const String onBoarding = '/on-boarding-page';
   static const String forgotPassword = '/forgot-password-page';
   static const String homeLayout = '/home-layout-page';
+  static const String profile = '/profile-page';
+  static const String notify = '/notifications-page';
 
   static String getInitialPage() => initial;
   static String getAboutUsPage() => about;
@@ -70,7 +73,7 @@ class RouteHelper {
     //account
     GetPage(
         name: account,
-        page: () => const AccountPage(),
+        page: () => const ProfilePage(),
         transition: Transition.fade),
     //initial assessment
     GetPage(
@@ -144,8 +147,13 @@ class RouteHelper {
         transition: Transition.fade),
     //profile
     GetPage(
+        name: profile,
+        page: () => const ProfilePage(),
+        transition: Transition.fade),
+    //notifications
+    GetPage(
         name: homeLayout,
-        page: () => const HomeLayoutPage(),
+        page: () => const NotificationsPage(),
         transition: Transition.fade),
   ];
 

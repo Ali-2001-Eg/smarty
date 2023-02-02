@@ -3,8 +3,8 @@ import 'package:graduation_project/shared/widgets/my_drawer.dart';
 
 import '../../shared/widgets/custom_appBar.dart';
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({Key? key}) : super(key: key);
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
