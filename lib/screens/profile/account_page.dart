@@ -9,10 +9,11 @@ class AccountPage extends StatelessWidget {
   final TextEditingController _currentPasswordController =
       TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
+  GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff090A4A),
+      backgroundColor: const Color(0xff090A4A),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -54,57 +55,188 @@ class AccountPage extends StatelessWidget {
               _immutableProfileWidget(context, Icons.email,
                   'alimazenali@outlook.com', 'email address'),
               //confirm current password
-              _editableProfileWidget(context, 'Current Password',
-                  'Type Your Current Password', _currentPasswordController,false),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(
+                        top: 30, left: 15, right: 15, bottom: 0),
+                    padding: const EdgeInsets.only(left: 25),
+                    child: const Text(
+                      'Current Password',
+                      style: TextStyle(
+                        color: Color(0xffFEA633),
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 5, left: 15, right: 15),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white70),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Obx(
+                      () => TextFormField(
+                        validator: (String? value) {
+                          if (value!.isEmpty) {
+                            return 'required';
+                          }
+                          return null;
+                        },
+                        key: _key,
+                        enabled: !_controller.isDisabled.value,
+                        controller: _currentPasswordController,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline5
+                            ?.copyWith(color: Colors.white70),
+                        obscureText: (_controller.isPasswordShown.value),
+                        decoration: InputDecoration(
+                          hintText: 'Type Your Current Password',
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _controller.suffix,
+                              size: 35,
+                              color: Colors.white70,
+                            ),
+                            onPressed: () {
+                              print('tapped');
+                              _controller.changeSuffixIcon();
+                            },
+                          ),
+                          prefixIcon: IconButton(
+                            icon: const Icon(
+                              Icons.lock,
+                              size: 35,
+                              color: Colors.white70,
+                            ),
+                            onPressed: () {},
+                          ),
+                          hintStyle:
+                              Theme.of(context).textTheme.bodyText1?.copyWith(
+                                    color: Colors.white70,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(
                 height: 30,
               ),
-              TextButton.icon(
-                onPressed: (() {
-                  _controller.verifyCurrentPassword();
-                }),
-                icon: const Icon(Icons.check_box),
-                label: Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(15),
+              Container(
+               
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.all(5),
+                child: TextButton(
+                  onPressed: () {
+                    // print('ali');
+                    _controller.disableTextField();
+                    _controller.verifyCurrentPassword();
+                  },
                   child: const Text(
-                    'submit',
+                    'Submit',
                     style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white70,
-                    borderRadius: BorderRadius.circular(25),
+                        color: Colors.white,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w500),
                   ),
                 ),
+                //new password
               ),
-
-              //new password
-             _editableProfileWidget(context, 'New Password',
-                  'Type a New Password', _newPasswordController,true),
               const SizedBox(
-                height: 50,
+                height: 10,
               ),
-              TextButton.icon(
-                onPressed: (() {}),
-                icon: const Icon(Icons.save_alt_outlined),
-                label: Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(20),
-                  child: const Text(
-                    'save new password',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
+              //new password
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(
+                        top: 30, left: 15, right: 15, bottom: 0),
+                    padding: const EdgeInsets.only(left: 25),
+                    child: const Text(
+                      'New Password',
+                      style: TextStyle(
+                        color: Color(0xffFEA633),
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
-                  decoration: BoxDecoration(
-                    color: Colors.white70,
-                    borderRadius: BorderRadius.circular(25),
+                  Container(
+                    margin: const EdgeInsets.only(top: 5, left: 15, right: 15),
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.white70),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Obx(
+                      () => TextField(
+                        enabled: _controller.isVerified.value,
+                        controller: _newPasswordController,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline5
+                            ?.copyWith(color: Colors.white70),
+                        obscureText: (_controller.isPasswordShown.value),
+                        decoration: InputDecoration(
+                          hintText: 'Type new Password',
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _controller.suffix,
+                              size: 35,
+                              color: Colors.white70,
+                            ),
+                            onPressed: () {
+                              print('tapped');
+                              _controller.changeSuffixIcon();
+                            },
+                          ),
+                          prefixIcon: IconButton(
+                            icon: const Icon(
+                              Icons.lock,
+                              size: 35,
+                              color: Colors.white70,
+                            ),
+                            onPressed: () {},
+                          ),
+                          hintStyle:
+                              Theme.of(context).textTheme.bodyText1?.copyWith(
+                                    color: Colors.white70,
+                                  ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),color: Colors.blue,
+                      ),
+                      margin: const EdgeInsets.only(top: 20),
+
+                      child: TextButton(
+                        onPressed: () {
+                          // print('ali');
+                          _controller.verifyCurrentPassword();
+                        },
+                        child: const Text(
+                          'Save Password',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      //new password
+                    ),
+                  ),
+
+                ],
               ),
             ],
           ),
@@ -165,68 +297,4 @@ class AccountPage extends StatelessWidget {
           ),
         ],
       );
-
-  Widget _editableProfileWidget(BuildContext context, String label, String hint,
-          TextEditingController txtController,bool isNew,) {
-    print(isNew);
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin:
-                const EdgeInsets.only(top: 30, left: 15, right: 15, bottom: 0),
-            padding: const EdgeInsets.only(left: 25),
-            child: Text(
-              label,
-              style: const TextStyle(
-                color: Color(0xffFEA633),
-                decoration: TextDecoration.underline,
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 5, left: 15, right: 15),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.white70),
-                borderRadius: BorderRadius.circular(20)),
-            child: Obx(() => TextField(
-                  enabled: isNew?_controller.isVerified.value:true,
-                  controller: txtController,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5
-                      ?.copyWith(color: Colors.white70),
-                  obscureText: (_controller.isPasswordShown.value),
-                  decoration: InputDecoration(
-                    hintText: hint,
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _controller.suffix,
-                        size: 35,
-                        color: Colors.white70,
-                      ),
-                      onPressed: () {
-                        print('tapped');
-                        _controller.changeSuffixIcon();
-                      },
-                    ),
-                    prefixIcon: IconButton(
-                      icon: const Icon(
-                        Icons.lock,
-                        size: 35,
-                        color: Colors.white70,
-                      ),
-                      onPressed: () {},
-                    ),
-                    hintStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
-                          color: Colors.white70,
-                        ),
-                  ),
-                ),
-            ),
-          ),
-        ],
-      );
-  }
 }

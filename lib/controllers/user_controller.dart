@@ -22,9 +22,9 @@ class UserController extends GetxController{
     update();
   }
   //after confirming current => disable this text field
-  var isConfirmed=false.obs;
+  var isDisabled=false.obs;
   void disableTextField(){
-    isConfirmed.value=true;
+    isDisabled.value=true;
     update();
   }
 
