@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/screens/account/account_page.dart';
+import 'package:graduation_project/screens/profile/profile_page.dart';
 import 'package:graduation_project/screens/content/content_page.dart';
 import 'package:graduation_project/screens/games/games_page.dart';
 import 'package:graduation_project/shared/widgets/my_drawer.dart';
@@ -36,7 +36,7 @@ class HomeLayoutPage extends StatelessWidget {
           children:const <Widget>[
             EducationalContentPage(),
             GamesPage(),
-            AccountPage(),
+            ProfilePage(),
           ],
         ),
       bottomNavigationBar: CustomBottomNavigationBar(),
