@@ -22,10 +22,13 @@ class GamesPage extends StatelessWidget {
               image: AssetImage('assets/images/spalshLearn.png')),
         ),
         child: ListView.builder(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             var item = items[index];
-            return buildGameItemTile(item, context,);
+            return buildGameItemTile(
+              item,
+              context,
+            );
           },
           itemCount: items.length,
           padding: const EdgeInsets.only(top: 15, left: 20),
@@ -34,11 +37,63 @@ class GamesPage extends StatelessWidget {
     );
   }
 
-  Widget buildGameItemTile(GameItems item, context,) {
+  Widget buildGameItemTile(
+    GameItems item,
+    context,
+  ) {
     return InkWell(
-      onTap: (){
-        Get.to(WebViewScreen(url: item.url));
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            // return object of type Dialog
+            return Center(
+              child: AlertDialog(
+                backgroundColor: Colors.grey,
+                title: const Text("Choose Game Level"),
+                content: Container(
+                  height: 350,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/spider_solitaire_2_suits_'));},child: _buildLevelDialog(context, '1',)),
+                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/basketball_fever'));},child: _buildLevelDialog(context, '2',)),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/football_heads_england_2019-20_premier_league_'));},child: _buildLevelDialog(context, '3',)),
+                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/flappy_ball'));},child: _buildLevelDialog(context, '4',)),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/street_football_online_3d'));},child: _buildLevelDialog(context, '5',)),
+                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/soccer_kid_doctor'));},child: _buildLevelDialog(context, '6',)),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                actions: <Widget>[
+                  // usually buttons at the bottom of the dialog
+                  TextButton(
+                    child: const Text("Close",style: TextStyle(color: Colors.black),),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        );
       },
+      //game first page
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -87,6 +142,23 @@ class GamesPage extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildLevelDialog(BuildContext context, String level,) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(color: const Color(0xff090A4A)),
+          color: const Color(0xff09ABB3)),
+      padding: const EdgeInsets.only(top: 20,right: 20,left: 20,bottom: 20),
+      margin: const EdgeInsets.only(top: 10,bottom: 10,right: 15,left: 15),
+      child: Text(
+        level,
+        style: Theme.of(context).textTheme.headline3?.copyWith(
+              color: const Color(0xffFEA633),
+            ),
       ),
     );
   }
