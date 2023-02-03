@@ -68,6 +68,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                     isDismissible: true,
                     barBlur: 10,
                     colorText: Colors.red,
+                    dismissDirection: DismissDirection.horizontal
                   );
                 },
                 background: Container(
