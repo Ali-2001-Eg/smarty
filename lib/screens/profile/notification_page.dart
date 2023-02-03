@@ -1,25 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/controllers/notifications_controller.dart';
 import 'package:graduation_project/models/notification_model.dart';
 import 'package:graduation_project/shared/widgets/notification_item.dart';
 
-import '../../shared/widgets/notification_dialog.dart';
-
-class NotificationsPage extends StatefulWidget {
-  const NotificationsPage({Key? key}) : super(key: key);
-
-  @override
-  State<NotificationsPage> createState() => _NotificationsPageState();
-}
 
 bool isMessageDeleted = false;
 
-class _NotificationsPageState extends State<NotificationsPage> {
+class NotificationsPage extends StatelessWidget {
+  const NotificationsPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<NotificationsItem> items = List.of(allNotifications);
-
+    final NotificationsController controller =
+        Get.put(NotificationsController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -57,19 +53,41 @@ class _NotificationsPageState extends State<NotificationsPage> {
             final item = items[index];
             return Dismissible(
                 key: UniqueKey(),
+                confirmDismiss:(DismissDirection direction) async {
+                return await showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    backgroundColor: Colors.white,
+                    title: const Text("Confirm"),
+                    content: const Text("Are you sure you wish to delete this message?"),
+                    actions: <Widget>[
+                      TextButton(
+                          onPressed: () => Navigator.of(context).pop(true),
+                          child: const Text("DELETE",style: TextStyle(color: Colors.red),)
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: const Text("CANCEL"),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
                 direction: DismissDirection.horizontal,
                 onDismissed: (direction) {
-                  items.removeAt(index);
-                  Get.snackbar(
-                    'Message',
-                    'is deleted',
-                    backgroundColor: Color(0xff090A4A),
-                    snackStyle: SnackStyle.FLOATING,
-                    isDismissible: true,
-                    barBlur: 10,
-                    colorText: Colors.red,
-                    dismissDirection: DismissDirection.horizontal
-                  );
+
+                  if (controller.isDeleted.value) {
+                    items.removeAt(index);
+                    Get.snackbar('Message', 'is deleted',
+                        backgroundColor: Color(0xff090A4A),
+                        snackStyle: SnackStyle.FLOATING,
+                        isDismissible: true,
+                        barBlur: 10,
+                        colorText: Colors.red,
+                        dismissDirection: DismissDirection.horizontal);
+                  }
                 },
                 background: Container(
                   alignment: Alignment.center,
@@ -114,64 +132,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
           style: TextStyle(color: Colors.grey, fontSize: 15),
         ),
       ),
-    );
-  }
-
-  showAlertDialog(
-    BuildContext context,
-  ) {
-    // Init
-    AlertDialog dialog = AlertDialog(
-      actionsPadding: EdgeInsets.all(15),
-      titlePadding: EdgeInsets.all(15),
-      shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      actionsAlignment: MainAxisAlignment.spaceBetween,
-      title: Text("Your Child grade is 22"),
-      actions: [
-        IconButton(
-            icon: Icon(
-              Icons.delete,
-              color: Colors.red,
-              size: 35,
-            ),
-            onPressed: () {
-              setState(() {
-                isMessageDeleted = true;
-              });
-              print('first' + isMessageDeleted.toString());
-              Navigator.pop(context);
-              // setState(() {
-              //   isMessageDeleted=false;
-              // });
-              // print('second'+isMessageDeleted.toString());
-            }),
-        TextButton(
-            child: Text("Cancel"),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-      ],
-    );
-
-    // Show the dialog (showDialog() => showGeneralDialog())
-    showGeneralDialog(
-      context: context,
-      pageBuilder: (context, anim1, anim2) {
-        return Wrap();
-      },
-      transitionBuilder: (context, anim1, anim2, child) {
-        return Transform(
-          transform: Matrix4.translationValues(
-            0.0,
-            (1.0 - Curves.easeInOut.transform(anim1.value)) * 400,
-            0.0,
-          ),
-          child: dialog,
-        );
-      },
-      transitionDuration: Duration(milliseconds: 400),
     );
   }
 }
