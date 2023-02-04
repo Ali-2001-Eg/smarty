@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
+import 'package:graduation_project/screens/profile/account_page.dart';
 import 'package:graduation_project/screens/profile/notification_page.dart';
 import 'package:graduation_project/screens/profile/profile_page.dart';
 import 'package:graduation_project/screens/assessment_exams/final_assessment_page.dart';
@@ -58,6 +59,7 @@ class RouteHelper {
   static String getOnBoardingPage() => onBoarding;
   static String getForgottenPassword() => forgotPassword;
   static String getHomeLayout() => homeLayout;
+  static String getNotificationsPage() => notify;
 
   static List<GetPage> routes = [
     //initial
@@ -73,7 +75,7 @@ class RouteHelper {
     //account
     GetPage(
         name: account,
-        page: () => const ProfilePage(),
+        page: () =>  AccountPage(),
         transition: Transition.fade),
     //initial assessment
     GetPage(
@@ -152,7 +154,7 @@ class RouteHelper {
         transition: Transition.fade),
     //notifications
     GetPage(
-        name: homeLayout,
+        name: notify,
         page: () => const NotificationsPage(),
         transition: Transition.fade),
   ];
