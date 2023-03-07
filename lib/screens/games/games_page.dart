@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/widgets/web_view_screen.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../../models/games_model.dart';
-import '../../models/notification_model.dart';
 import '../../shared/widgets/game_item.dart';
-import '../../shared/widgets/notification_item.dart';
 
 class GamesPage extends StatelessWidget {
   const GamesPage({Key? key}) : super(key: key);
@@ -58,22 +56,77 @@ class GamesPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/spider_solitaire_2_suits_'));},child: _buildLevelDialog(context, '1',)),
-                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/basketball_fever'));},child: _buildLevelDialog(context, '2',)),
+                          InkWell(
+                              onTap: () async {
+                                print('game tapped');
+                                const url =
+                                    'https://www.y8.com/games/flappy_ball';
+                                if (await canLaunchUrl(Uri.parse(url))) {
+                                  await launchUrl(
+                                    Uri.parse(url),
+                                    mode: LaunchMode.externalApplication,
+                                  );
+                                }
+                              },
+                              child: _buildLevelDialog(
+                                context,
+                                '1',
+                              )),
+                          InkWell(
+                              onTap: () {
+                                Get.to(() =>
+                                    WebViewScreen(url: item.levelsUrl[1]));
+                              },
+                              child: _buildLevelDialog(
+                                context,
+                                '2',
+                              )),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/football_heads_england_2019-20_premier_league_'));},child: _buildLevelDialog(context, '3',)),
-                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/flappy_ball'));},child: _buildLevelDialog(context, '4',)),
+                          InkWell(
+                              onTap: () {
+                                Get.to(() =>
+                                    WebViewScreen(url: item.levelsUrl[2]));
+                              },
+                              child: _buildLevelDialog(
+                                context,
+                                '3',
+                              )),
+                          InkWell(
+                              onTap: () {
+                                Get.to(() =>
+                                    WebViewScreen(url: item.levelsUrl[3]));
+                              },
+                              child: _buildLevelDialog(
+                                context,
+                                '4',
+                              )),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/street_football_online_3d'));},child: _buildLevelDialog(context, '5',)),
-                          InkWell(onTap:(){Get.to(WebViewScreen(url: 'https://www.y8.com/games/soccer_kid_doctor'));},child: _buildLevelDialog(context, '6',)),
+                          InkWell(
+                              onTap: () {
+                                Get.to(() =>
+                                    WebViewScreen(url: item.levelsUrl[4]));
+                              },
+                              child: _buildLevelDialog(
+                                context,
+                                '5',
+                              )),
+                          InkWell(
+                              onTap: () {
+                                Get.to(() =>
+                                    WebViewScreen(url: item.levelsUrl[5]));
+                              },
+                              child: _buildLevelDialog(
+                                context,
+                                '6',
+                              )),
                         ],
                       ),
                     ],
@@ -82,7 +135,10 @@ class GamesPage extends StatelessWidget {
                 actions: <Widget>[
                   // usually buttons at the bottom of the dialog
                   TextButton(
-                    child: const Text("Close",style: TextStyle(color: Colors.black),),
+                    child: const Text(
+                      "Close",
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
@@ -146,14 +202,17 @@ class GamesPage extends StatelessWidget {
     );
   }
 
-  Widget _buildLevelDialog(BuildContext context, String level,) {
+  Widget _buildLevelDialog(
+    BuildContext context,
+    String level,
+  ) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           border: Border.all(color: const Color(0xff090A4A)),
           color: const Color(0xff09ABB3)),
-      padding: const EdgeInsets.only(top: 20,right: 20,left: 20,bottom: 20),
-      margin: const EdgeInsets.only(top: 10,bottom: 10,right: 15,left: 15),
+      padding: const EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 20),
+      margin: const EdgeInsets.only(top: 10, bottom: 10, right: 15, left: 15),
       child: Text(
         level,
         style: Theme.of(context).textTheme.headline3?.copyWith(

@@ -66,97 +66,97 @@ class RouteHelper {
     GetPage(
         name: initial,
         page: () => const GetStartedPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //about
     GetPage(
         name: about,
         page: () => const AboutUsPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //account
     GetPage(
         name: account,
         page: () =>  AccountPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //initial assessment
     GetPage(
         name: initialAssessment,
         page: () => const InitialAssessmentPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //final assessment
     GetPage(
         name: finalAssessment,
         page: () => const FinalAssessmentPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //sign in
     GetPage(
         name: signIn,
         page: () => const SignInPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //sign up
     GetPage(
         name: signUp,
         page: () => const SignUpPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //chat
     GetPage(
         name: chat,
         page: () => const ChatPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //content
     GetPage(
         name: educationalContent,
         page: () => const EducationalContentPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //feedback
     GetPage(
         name: feedback,
         page: () => const FeedBackPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //games
     GetPage(
         name: games,
         page: () => const GamesPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //settings
     GetPage(
         name: settings,
         page: () => const SettingsPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //splash
     GetPage(
         name: splashScreen,
         page: () => const SplashScreen(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //events
     GetPage(
         name: events,
         page: () => const EventsPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //on boarding
     GetPage(
         name: onBoarding,
         page: () => const OnBoardingScreen(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //forgot
     GetPage(
         name: forgotPassword,
         page: () => const ForgotPassword(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //home layout
     GetPage(
         name: homeLayout,
         page: () => const HomeLayoutPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //profile
     GetPage(
         name: profile,
         page: () => const ProfilePage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
     //notifications
     GetPage(
         name: notify,
         page: () => const NotificationsPage(),
-        transition: Transition.fade),
+        transition: Transition.rightToLeft),
   ];
 
   static List<GetPage> getRoutes() => routes;

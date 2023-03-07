@@ -16,14 +16,16 @@ class ProfilePage extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage('assets/images/spalshLearn.png'),fit: BoxFit.cover),
         ),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30),
-              child: Text('Profile',style: Theme.of(context).textTheme.headline4?.copyWith(color: Color(0xffFEA633)),),
-            ),
-            ProfileBody(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 30),
+                child: Text('Profile',style: Theme.of(context).textTheme.headline4?.copyWith(color: Color(0xffFEA633)),),
+              ),
+              ProfileBody(),
+            ],
+          ),
         ),
       ),
 

@@ -43,7 +43,7 @@ Widget myDrawer(context,{fromGetStarted=true}) {
             ListTile(
               dense: true,
               title: const Text("Chat"),
-              leading: const Icon(Icons.whatsapp),
+              leading: const Icon(Icons. chat),
               onTap: () => Get.toNamed(RouteHelper.getChatPage()),
             ),
             //Content

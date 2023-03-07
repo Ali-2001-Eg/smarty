@@ -11,7 +11,7 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.symmetric(vertical: 50),
       child: Column(
         children: [
           ProfilePic(),

@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/screens/auth/sign_in_page.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
 
@@ -14,14 +15,16 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: Material(
-        color: Colors.white,
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
+    return LayoutBuilder(builder: (context,constraints){
+      if(constraints.maxWidth.toInt()>570)
+        return Scaffold();
+      else {
+        return Scaffold(
+        resizeToAvoidBottomInset: true,
+        body: Material(
+          color: Colors.white,
+          child: SafeArea(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -35,7 +38,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 20,
                     width: 20,
                   ),
-              AnimatedTextKit(
+                  AnimatedTextKit(
                     animatedTexts: [
                       TypewriterAnimatedText('Create Account',
                           textStyle: const TextStyle(
@@ -140,8 +143,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         const Text(
                           'By signing up you agree to our terms, conditions and privacy Policy.',
                           style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold
                           ),
                         ),
                       ],
@@ -152,7 +155,8 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
         ),
-      ),
-    );
+      );
+      }
+    });
   }
 }

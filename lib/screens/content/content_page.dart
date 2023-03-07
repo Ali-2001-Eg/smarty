@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/custom_appBar.dart';
@@ -8,15 +11,20 @@ class EducationalContentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       extendBody: true,
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/spalshLearn.png'),fit: BoxFit.cover),
+              image: AssetImage('assets/images/spalshLearn.png'),
+              fit: BoxFit.cover),
         ),
-        child: Center(
-          child: Text('Content'),
+        child: Builder(
+          builder: (context) {
+            return Center(
+            child: const CircularProgressIndicator(),
+          );
+          },
+
         ),
       ),
     );

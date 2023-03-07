@@ -33,7 +33,7 @@ class GetStartedPage extends StatelessWidget {
                   ClipPath(
                     clipper: WaveHomeClipper(),
                     child: Container(
-                      height: 750,
+
                       padding: const EdgeInsets.only(bottom: 80),
                       // # + code => 0xff + code
                       color: const Color(0xffFEA633),
@@ -99,6 +99,7 @@ class GetStartedPage extends StatelessWidget {
                           Stack(alignment: Alignment.center, children: [
                             Image.asset(
                               'assets/images/background.png',
+                              height: 500,
                             ),
                             ElevatedButton(
                               onPressed: () {
