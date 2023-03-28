@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/get_started/get_started_page.dart';
 import 'package:graduation_project/screens/auth/sign_in_page.dart';
@@ -34,13 +35,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return ScreenUtilInit(builder: (context, child) => GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Smarty',
-      // home: SignUpPage(),
+      // home: const SignInPage(),
       theme: ThemeData(),
-      initialRoute: RouteHelper.getInitialPage(),
+      initialRoute: RouteHelper.getSplashPage(),
       getPages: RouteHelper.getRoutes(),
-    );
+    ),);
   }
 }

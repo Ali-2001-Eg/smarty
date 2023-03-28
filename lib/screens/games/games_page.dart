@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/widgets/web_view_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../models/games_model.dart';
 import '../../shared/widgets/game_item.dart';
 
@@ -57,16 +56,11 @@ class GamesPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           InkWell(
-                              onTap: () async {
-                                print('game tapped');
-                                const url =
-                                    'https://www.y8.com/games/flappy_ball';
-                                if (await canLaunchUrl(Uri.parse(url))) {
-                                  await launchUrl(
-                                    Uri.parse(url),
-                                    mode: LaunchMode.externalApplication,
-                                  );
-                                }
+                              onTap: ()  {
+
+                                Get.to(() =>
+                                    WebViewScreen(url: item.levelsUrl[0]));
+
                               },
                               child: _buildLevelDialog(
                                 context,
@@ -88,6 +82,8 @@ class GamesPage extends StatelessWidget {
                         children: [
                           InkWell(
                               onTap: () {
+                                print(item.levelsUrl[2]);
+
                                 Get.to(() =>
                                     WebViewScreen(url: item.levelsUrl[2]));
                               },

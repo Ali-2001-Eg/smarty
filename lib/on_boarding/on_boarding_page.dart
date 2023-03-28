@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/cache_helper/cache_helper.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
@@ -29,7 +30,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   List<BoardingModel> boarding = [
     BoardingModel(
         title: 'Our Kindergarten Anniversary',
-        image: 'assets/images/on_boarding_1.png',
+        image: 'assets/images/on_boarding_3.png',
         body:
             'The perfect class for your child with the best staff and best teachers.'),
     BoardingModel(
@@ -38,7 +39,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         body: 'we provided sections to improve Our Student Imagination and Creativity'),
     BoardingModel(
         title: 'Determine Student Learning Difficulty',
-        image: 'assets/images/on_boarding_3.png',
+        image: 'assets/images/on_boarding_1.png',
         body: 'Our Exams Walks Through Scientific laws and standards'),
   ];
 
@@ -53,10 +54,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/spalshLearn.png'),
-                fit: BoxFit.cover)),
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -99,7 +96,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     effect: const ExpandingDotsEffect(
                         dotColor: Colors.grey,
                         dotHeight: 10.0,
-                        activeDotColor: Color(0xff090A4A),
+                        activeDotColor: Colors.blue,
                         expansionFactor: 4.0,
                         dotWidth: 10.0,
                         spacing: 5.0),
@@ -132,40 +129,35 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 }
 
 Widget buildBoardingItem(BoardingModel model,context) => Column(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Container(
+        Container(
+          height: MediaQuery.of(context).size.height/2,
+            decoration: BoxDecoration(
+          image:  DecorationImage(
+            fit: BoxFit.fill,
+              image: AssetImage(
+            model.image,
+          ),
 
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-            image:  DecorationImage(
-                image: AssetImage(
-              model.image,
-            ),
-
-            ),
-          )),
-        ),
+          ),
+        )),
         Text(
           model.title,
-          style: const TextStyle(
+          style:  TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 24.0,
-              color: Colors.white70),
+              fontSize: 20.0.sp,
+              color: Colors. black),
         ),
-        const SizedBox(
-          height: 15.0,
-        ),
+
         Text(
           model.body,
-          style: const TextStyle(
+          style:  TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 14.0,
-              color: Colors.white70),
+              fontSize: 12.0.sp,
+              color: Colors.black),
         ),
-        const SizedBox(
-          height: 30.0,
-        ),
+
       ],
     );

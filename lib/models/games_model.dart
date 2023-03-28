@@ -1,7 +1,23 @@
 import '../shared/widgets/game_item.dart';
 
 List<GameItems> allGames = [
-  GameItems('assets/images/splashLearn2.png', 'PancMan', [
+  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/soccer_kid_doctor',
+    'https://play.unity.com/webgl/6d8e0d70-cd2e-476e-92b8-53fb6043818b?screenshot=false&embedType=embed',
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/flappy_ball',
+  ]),
+  GameItems('assets/images/splashLearn2.png', 'Tic Tac Toe', const [
+    'https://www.y8.com/games/soccer_kid_doctor',
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/flappy_ball',
+    'https://www.y8.com/games/flappy_ball',
+  ]),
+  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/soccer_kid_doctor',
     'https://www.y8.com/games/flappy_ball',
@@ -9,15 +25,7 @@ List<GameItems> allGames = [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'Tic Tac Toe', [
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-  ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', [
+  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/soccer_kid_doctor',
     'https://www.y8.com/games/flappy_ball',
@@ -25,7 +33,7 @@ List<GameItems> allGames = [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', [
+  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/soccer_kid_doctor',
     'https://www.y8.com/games/flappy_ball',
@@ -33,7 +41,7 @@ List<GameItems> allGames = [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', [
+  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/soccer_kid_doctor',
     'https://www.y8.com/games/flappy_ball',
@@ -41,15 +49,7 @@ List<GameItems> allGames = [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-  ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', [
+  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
     'https://www.y8.com/games/flappy_ball',
     'https://www.y8.com/games/soccer_kid_doctor',
     'https://www.y8.com/games/flappy_ball',
