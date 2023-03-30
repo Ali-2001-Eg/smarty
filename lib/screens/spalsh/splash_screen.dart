@@ -86,7 +86,6 @@ class _SplashScreenState extends State<SplashScreen>
         }else{
           Get.offNamed(RouteHelper.getInitialPage());
         }
-
       } else {
         Get.offNamed(RouteHelper.getSignInPage());
       }

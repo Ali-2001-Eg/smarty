@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/screens/auth/sign_in_page.dart';
+import 'package:graduation_project/shared/constatns/locale_strings.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
         return Scaffold(
@@ -31,7 +31,7 @@ class SignUpPage extends StatelessWidget {
               ),
               AnimatedTextKit(
                 animatedTexts: [
-                  TypewriterAnimatedText('Create Account',
+                  TypewriterAnimatedText(appCreateAccountAr.tr,
                       textStyle:  TextStyle(
                         color: const Color(0xff090A4A),
                         fontSize: 30.sp,
@@ -57,10 +57,10 @@ class SignUpPage extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.person),
-                        hintText: 'Enter Your Full Name',
-                        labelText: 'Full Name',
+                      decoration:  InputDecoration(
+                        icon: const Icon(Icons.person),
+                        hintText: appFullNameEn.tr,
+                        labelText: appFullNameEn.tr,
                       ),
                     ),
                      SizedBox(
@@ -68,10 +68,10 @@ class SignUpPage extends StatelessWidget {
                       width: 10.w,
                     ),
                     TextFormField(
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.email),
-                        hintText: 'Enter Your Email/Username',
-                        labelText: 'Email or Username',
+                      decoration:  InputDecoration(
+                        icon: const Icon(Icons.email),
+                        hintText:  appHaveUserNameOrEmailEn.tr,
+                        labelText: appHaveUserNameOrEmailEn.tr,
                       ),
                     ),
                      SizedBox(
@@ -80,10 +80,10 @@ class SignUpPage extends StatelessWidget {
                     ),
                     TextFormField(
                       obscureText: true,
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.lock),
-                        hintText: 'Enter Your Password',
-                        labelText: 'Password',
+                      decoration:  InputDecoration(
+                        icon: const Icon(Icons.lock),
+                        hintText: appPasswordEn.tr,
+                        labelText: appPasswordEn.tr,
                       ),
                     ),
                      SizedBox(
@@ -102,7 +102,7 @@ class SignUpPage extends StatelessWidget {
                         width: 150.w,
                         height: 35.h,
                         child:  Text(
-                          'Sign Up',
+                          appSignupEn.tr,
                           style: TextStyle(
                             fontSize: 18.sp,
                             color: Colors.white,
@@ -116,13 +116,13 @@ class SignUpPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Text('Already have an account?'),
+                         Text(appAlreadyHaveAnAccountEn.tr),
                         TextButton(
                           onPressed: (() {
                             Get.toNamed(RouteHelper.getSignInPage());
                           }),
                           child:  Text(
-                            'Sign In',
+                            appSignInEn.tr,
                             style: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
@@ -133,7 +133,7 @@ class SignUpPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                     ),
                     Text(
-                      'By signing up you agree to our terms, conditions and privacy Policy.',
+                      appSignUpFooterEn.tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 13.sp,

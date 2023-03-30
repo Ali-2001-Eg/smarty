@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/dependencies/auth_binding.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
 import 'package:graduation_project/screens/profile/account_page.dart';
@@ -75,7 +76,7 @@ class RouteHelper {
     //account
     GetPage(
         name: account,
-        page: () =>  AccountPage(),
+        page: () => AccountPage(),
         transition: Transition.rightToLeft),
     //initial assessment
     GetPage(
@@ -89,13 +90,15 @@ class RouteHelper {
         transition: Transition.rightToLeft),
     //sign in
     GetPage(
-        name: signIn,
-        page: () => const SignInPage(),
-        transition: Transition.rightToLeft),
+      name: signIn,
+      page: () =>   SignInPage(),
+      transition: Transition.rightToLeft,
+      binding: AuthBinding(),
+    ),
     //sign up
     GetPage(
         name: signUp,
-        page: () => const SignUpPage(),
+        page: () =>  SignUpPage(),
         transition: Transition.rightToLeft),
     //chat
     GetPage(
@@ -140,7 +143,7 @@ class RouteHelper {
     //forgot
     GetPage(
         name: forgotPassword,
-        page: () => const ForgotPassword(),
+        page: () =>  ForgotPassword(),
         transition: Transition.rightToLeft),
     //home layout
     GetPage(

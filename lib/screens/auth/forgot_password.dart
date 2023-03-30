@@ -3,10 +3,10 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/shared/constatns/locale_strings.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
 class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ForgotPassword extends StatelessWidget {
             Center(
               child: AnimatedTextKit(
                 animatedTexts: [
-                  TypewriterAnimatedText('Send Reset Link To Email!',
+                  TypewriterAnimatedText(appSendResetLinkToEmailEn.tr,
                       textStyle:  TextStyle(
                         color: Colors.red,
                         fontSize: 20.sp,
@@ -54,10 +54,10 @@ class ForgotPassword extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Enter Your Email',
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
+                    decoration:  InputDecoration(
+                      hintText: appEmailOrUserNameEn.tr,
+                      labelText: appEmailOrUserNameEn.tr,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
                    SizedBox(
@@ -72,7 +72,7 @@ class ForgotPassword extends StatelessWidget {
                       width: 150.w,
                       height: 35.h,
                       child:  Text(
-                        'Send Reset Link',
+                        appSendResetLinkEn.tr,
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: Colors.white,
@@ -98,7 +98,7 @@ class ForgotPassword extends StatelessWidget {
                       width: 150.w,
                       height: 35.h,
                       child:  Text(
-                        'Return Home',
+                        appReturnHomeEn.tr,
                         style: TextStyle(
                           fontSize: 12.sp,
                           color: Colors.white,

@@ -6,8 +6,7 @@ class AccountPage extends StatelessWidget {
   AccountPage({Key? key}) : super(key: key);
 
   final UserController _controller = Get.put(UserController());
-  final TextEditingController _currentPasswordController =
-      TextEditingController();
+  final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
   GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
