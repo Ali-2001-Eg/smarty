@@ -22,4 +22,11 @@ const Map<String, String> en = {
   appFullNameEn:appFullNameEn,
   appAlreadyHaveAnAccountEn:appAlreadyHaveAnAccountEn,
   appSignUpFooterEn:appSignUpFooterEn,
+  appGetStartedFirstEn:appGetStartedFirstEn,
+  appGetStartedSecondEn:appGetStartedSecondEn,
+  appGetStartedButtonEn:appGetStartedButtonEn,
+  appGamesEn:appGamesEn,
+  appChatEn:appChatEn,
+  appContentEn:appContentEn,
+  appExamEn:appExamEn,
 };

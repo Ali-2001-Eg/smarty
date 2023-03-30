@@ -17,6 +17,7 @@ class WaveBottomClipper extends CustomClipper<Path> {
     path.lineTo(0, sh);
     path.close();
     return path;
+
   }
 
   @override

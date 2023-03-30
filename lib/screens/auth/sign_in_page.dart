@@ -63,7 +63,7 @@ class SignInPage extends StatelessWidget {
                         GetBuilder<LanguageController>(
                           builder: (langController) {
                             return Container(
-                              width: 150.w,
+                              width: 160.w,
                               padding: EdgeInsets.symmetric(
                                   horizontal: 6.h, vertical: 2.w),
                               decoration: BoxDecoration(
@@ -90,7 +90,7 @@ class SignInPage extends StatelessWidget {
                                         englishEn.tr,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 15.h,
+                                            fontSize: 15.sp,
                                             color: Colors.grey),
                                       ),
                                     ),
@@ -100,7 +100,7 @@ class SignInPage extends StatelessWidget {
                                         arabicEn.tr,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 15.h,
+                                            fontSize: 15.sp,
                                             color: Colors.grey),
                                       ),
                                     ),

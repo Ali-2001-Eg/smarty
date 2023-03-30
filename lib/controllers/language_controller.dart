@@ -8,12 +8,7 @@ class LanguageController extends GetxController{
  
   var locale = eng;
   var switchValue = false;
-  @override
-  onInit()
-  async {
-    locale = await getLanguage;
-    super.onInit();
-  }
+
 
   Future<String> get getLanguage async{
     return await CacheHelper.getData(key: 'lang');
