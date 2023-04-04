@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class ProfileMenu extends StatelessWidget {
@@ -16,22 +17,23 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
       child: TextButton(
         style: TextButton.styleFrom(
-          primary: Color(0xff090A4A),
-          padding: EdgeInsets.all(20),
+          primary: const Color(0xff090A4A),
+          padding: EdgeInsets.all(20.w),
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Colors.white70,
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
+          backgroundColor:
+              Theme.of(context).primaryColor.withAlpha(150),
         ),
         onPressed: press,
         child: Row(
           children: [
-            Icon(icon,),
-            SizedBox(width: 20),
-            Expanded(child: Text(text)),
-            Icon(Icons.arrow_forward_ios),
+            Icon(icon,color: Colors.white,),
+            SizedBox(width: 20.w),
+            Expanded(child: Text(text,style: const TextStyle(color: Colors.white),)),
+            const Icon(Icons.arrow_forward_ios,color: Colors.white,),
           ],
         ),
       ),

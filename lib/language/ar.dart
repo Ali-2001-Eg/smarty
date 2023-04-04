@@ -29,6 +29,23 @@ const Map<String, String> ar = {
   appChatEn:appChatAr,
   appContentEn:appContentAr,
   appExamEn:appExamAr,
-
-
+  appProfileEn:appProfileAr,
+  appInitialAssessmentEn:appInitialAssessmentAr,
+  appFinalAssessmentEn:appFinalAssessmentAr,
+  appEventEn:appEventAr,
+  appSettingsEn:appSettingsAr,
+  appAboutUsEn:appAboutUsAr,
+  appFeedbackEn:appFeedbackAr,
+  appNotificationsEn:appNotificationsAr,
+  appLogoutEn:appLogoutAr,
+  appUpdateProfileEn:appUpdateProfileAr,
+  appCurrentPasswordEn:appCurrentPasswordAr,
+  appEmailEn:appEmailAr,
+  appNewPasswordEn:appNewPasswordAr,
+  appSubmitEn:appSubmitAr,
+  appSavePasswordEn:appSavePasswordAr,
+  appDeleteEn:appDeleteAr,
+  appCancelEn:appCancelAr,
+  appConfirmEn:appConfirmAr,
+  appDeleteAlertMessageEn:appDeleteAlertMessageAr
 };

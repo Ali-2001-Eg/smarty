@@ -30,7 +30,15 @@ class GetStartedPage extends StatelessWidget {
               clipper: WaveHomeClipper(),
               child: Container(
                 padding: EdgeInsets.only(bottom: 80.h),
-                color: const Color(0xffFEA633),
+                decoration: const BoxDecoration(
+                color:  Color(0xffFEA633),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      'assets/images/stylings.png',
+                    )
+                  )
+                ),
                 child: Column(
                   children: [
                     //logo and drawer

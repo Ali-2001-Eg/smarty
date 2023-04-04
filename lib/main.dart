@@ -14,8 +14,7 @@ import 'package:graduation_project/shared/route_helper/route_helper.dart';
 import 'language/app_localization.dart';
 import 'on_boarding/on_boarding_page.dart';
 
-PageController pageController = PageController(initialPage: 0);
-int currentIndex = 0;
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

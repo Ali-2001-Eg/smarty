@@ -1,60 +1,25 @@
 import '../shared/widgets/game_item.dart';
 
 List<GameItems> allGames = [
-  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://play.unity.com/webgl/6d8e0d70-cd2e-476e-92b8-53fb6043818b?screenshot=false&embedType=embed',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
+  GameItems('assets/images/splashLearn2.png', 'PancMan Game', const [
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'Tic Tac Toe', const [
+  GameItems('assets/images/splashLearn2.png', 'Balloon Game', const [
     'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
+  ]),
+  GameItems('assets/images/splashLearn2.png', 'Counting Game', const [
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
+  GameItems('assets/images/splashLearn2.png', 'Alphabet Game', const [
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
+  GameItems('assets/images/splashLearn2.png', 'Word Game', const [
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
+  GameItems('assets/images/splashLearn2.png', 'Letter Game', const [
     'https://www.y8.com/games/flappy_ball',
   ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-  ]),
-  GameItems('assets/images/splashLearn2.png', 'PancMan', const [
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/soccer_kid_doctor',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
-    'https://www.y8.com/games/flappy_ball',
+  GameItems('assets/images/splashLearn2.png', 'Math Game', const [
     'https://www.y8.com/games/flappy_ball',
   ]),
 ];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/shared/widgets/my_drawer.dart';
 import 'package:graduation_project/shared/widgets/profile_body.dart';
 
@@ -9,26 +10,17 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      extendBody: true,
-      body: Container(
+    return
+      Container(
+        padding: EdgeInsets.only(top: 10.h),
         decoration: const BoxDecoration(
+          color: Color(0xff007EFF),
           image: DecorationImage(
-              image: AssetImage('assets/images/spalshLearn.png'),fit: BoxFit.cover),
+              image: AssetImage('assets/images/stylings.png'),fit: BoxFit.cover),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                child: Text('Profile',style: Theme.of(context).textTheme.headline4?.copyWith(color: Color(0xffFEA633)),),
-              ),
-              ProfileBody(),
-            ],
-          ),
+        child: const SingleChildScrollView(
+          child: ProfileBody(),
         ),
-      ),
-
-    );
+      );
   }
 }

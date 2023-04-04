@@ -33,84 +33,32 @@ class SignInPage extends StatelessWidget {
                     SizedBox(
                       height: 10.h,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        AnimatedTextKit(
-                          animatedTexts: [
-                            TypewriterAnimatedText(appWelcomeEn.tr,
-                                textStyle: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 30.sp,
-                                  fontStyle: FontStyle.italic,
-                                  fontFamily: 'Times New Roman',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                speed: const Duration(
-                                  milliseconds: 450,
-                                )),
-                          ],
-                          onTap: () {
-                            debugPrint("Welcome back!");
-                          },
-                          isRepeatingAnimation: false,
-                          totalRepeatCount: 0,
 
-                        ),
-                        SizedBox(
-                          width: 30.w,
-                        ),
-                        GetBuilder<LanguageController>(
-                          builder: (langController) {
-                            return Container(
-                              width: 160.w,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 6.h, vertical: 2.w),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                    color: const Color(0xffFEA633), width: 2),
+                    Center(
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          TypewriterAnimatedText(appWelcomeEn.tr,
+                              textStyle: TextStyle(
+                                color: Colors.red,
+                                fontSize: 30.sp,
+                                fontStyle: FontStyle.italic,
+                                fontFamily: 'Times New Roman',
+                                fontWeight: FontWeight.w500,
                               ),
-                              child: DropdownButtonHideUnderline(
-                                child: DropdownButton<String>(
-                                  onChanged: (value) {
-                                    langController.changeLanguage(value!);
-                                    Get.updateLocale(Locale(value));
-                                  },
-                                  value: langController.locale,
-                                  iconSize: 25.h,
-                                  icon: const Icon(
-                                    Icons.arrow_drop_down,
-                                    color: Colors.grey,
-                                  ),
-                                  items: [
-                                    DropdownMenuItem(
-                                      value: eng,
-                                      child: Text(
-                                        englishEn.tr,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15.sp,
-                                            color: Colors.grey),
-                                      ),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: arb,
-                                      child: Text(
-                                        arabicEn.tr,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15.sp,
-                                            color: Colors.grey),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ],
+                              speed: const Duration(
+                                milliseconds: 450,
+                              )),
+                        ],
+                        onTap: () {
+                          debugPrint("Welcome back!");
+                        },
+                        isRepeatingAnimation: false,
+                        totalRepeatCount: 0,
+
+                      ),
+                    ),
+                    SizedBox(
+                      width: 30.w,
                     ),
                     (Get.find<AuthController>().isStudent)
                         ? Padding(
@@ -312,7 +260,7 @@ class SignInPage extends StatelessWidget {
                                  appLoginAsEn.tr,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline3
+                                      .headlineMedium
                                       ?.copyWith(
                                           color: const Color(0xffFEA633)),
                                 ),

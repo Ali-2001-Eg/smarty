@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/controllers/user_controller.dart';
+import 'package:graduation_project/shared/constatns/locale_strings.dart';
 
 class AccountPage extends StatelessWidget {
   AccountPage({Key? key}) : super(key: key);
@@ -8,171 +10,159 @@ class AccountPage extends StatelessWidget {
   final UserController _controller = Get.put(UserController());
   final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
-  GlobalKey<FormState> _key = GlobalKey<FormState>();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff090A4A),
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-            onPressed: () => Get.back(),
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white70,
-            )),
-        backgroundColor: const Color(0xff090A4A),
-        title: Text('Update Profile',
+        backgroundColor: const Color(0xff007EFF),
+        title: Text(appUpdateProfileEn.tr,
             style: Theme.of(context)
                 .textTheme
-                .headline4
-                ?.copyWith(color: Colors.white70)),
+                .headlineMedium
+                ?.copyWith(color: Colors.white)),
         centerTitle: true,
-        bottomOpacity: 0,
-        actions: const [
-          // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
+        elevation: 0,
+        actions:  [
           CircleAvatar(
-            radius: 25,
-            backgroundImage: AssetImage('assets/images/logo.png'),
+            radius: 25.r,
+            backgroundImage: const AssetImage('assets/images/logo.png'),
           )
         ],
       ),
       body: Container(
+        height: double.infinity,
         decoration: const BoxDecoration(
-          image: DecorationImage(
+            color: Color(0xff007EFF),
+            image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/spalshLearn.png')),
+              image: AssetImage('assets/images/stylings.png'),
+            )
         ),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //username
               _immutableProfileWidget(
-                  context, Icons.person, 'Ali_Eg', 'username'),
+                  context, Icons.person, 'Ali_Eg', appEmailOrUserNameEn.tr),
               //email
               _immutableProfileWidget(context, Icons.email,
-                  'alimazenali@outlook.com', 'email address'),
+                  'alimazenali@outlook.com', appEmailOrUserNameEn.tr),
               //confirm current password
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(
-                        top: 30, left: 15, right: 15, bottom: 0),
-                    padding: const EdgeInsets.only(left: 25),
-                    child: const Text(
-                      'Current Password',
-                      style: TextStyle(
-                        color: Color(0xffFEA633),
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
+              Container(
+                margin:  EdgeInsets.only(
+                    top: 30.h, left: 15.w, right: 15.w, bottom: 0),
+                padding: EdgeInsets.only(left: 25.w),
+                child: Text(
+                  appCurrentPasswordEn.tr,
+                  style: const TextStyle(
+                    color: Color(0xffFEA633),
+                    decoration: TextDecoration.underline,
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 5, left: 15, right: 15),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white70),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Obx(
-                      () => TextFormField(
-                        validator: (String? value) {
-                          if (value!.isEmpty) {
-                            return 'required';
-                          }
-                          return null;
-                        },
-                        key: _key,
-                        enabled: !_controller.isDisabled.value,
-                        controller: _currentPasswordController,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5
-                            ?.copyWith(color: Colors.white70),
-                        obscureText: (_controller.isPasswordShown.value),
-                        decoration: InputDecoration(
-                          hintText: 'Type Your Current Password',
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              _controller.suffix,
-                              size: 35,
-                              color: Colors.white70,
-                            ),
-                            onPressed: () {
-                              print('tapped');
-                              _controller.changeSuffixIcon();
-                            },
-                          ),
-                          prefixIcon: IconButton(
-                            icon: const Icon(
-                              Icons.lock,
-                              size: 35,
-                              color: Colors.white70,
-                            ),
-                            onPressed: () {},
-                          ),
-                          hintStyle:
-                              Theme.of(context).textTheme.bodyText1?.copyWith(
-                                    color: Colors.white70,
-                                  ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
+                ),
               ),
               Container(
-               
+                margin:  EdgeInsets.only(top: 5.h, left: 15.w, right: 15.w),
+                padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: EdgeInsets.all(5),
-                child: TextButton(
-                  onPressed: () {
-                    // print('ali');
-                    _controller.disableTextField();
-                    _controller.verifyCurrentPassword();
-                  },
-                  child: const Text(
-                    'Submit',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w500),
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20.r)),
+                child: Obx(
+                  () => TextFormField(
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return 'required';
+                      }
+                      return null;
+                    },
+                    key: _key,
+                    enabled: !_controller.isDisabled.value,
+                    controller: _currentPasswordController,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        ?.copyWith(color: Colors.white),
+                    obscureText: (_controller.isPasswordShown.value),
+                    decoration: InputDecoration(
+                      hintText: appCurrentPasswordEn.tr,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _controller.suffix,
+                          size: 20.h,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          print('tapped');
+                          _controller.changeSuffixIcon();
+                        },
+                      ),
+                      prefixIcon: IconButton(
+                        icon: Icon(
+                          Icons.lock,
+                          size: 20.h,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
+                      hintStyle:
+                          Theme.of(context).textTheme.bodyText1?.copyWith(
+                                color: Colors.white,
+                              ),
+                    ),
                   ),
                 ),
-                //new password
               ),
-              const SizedBox(
-                height: 10,
+               SizedBox(
+                height: 30.h,
+              ),
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                  padding: EdgeInsets.all(5.w),
+                  child: TextButton(
+                    onPressed: () {
+                      // print('ali');
+                      _controller.disableTextField();
+                      _controller.verifyCurrentPassword();
+                    },
+                    child:  Text(
+                      appSubmitEn.tr,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.0.sp,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  //new password
+                ),
               ),
               //new password
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(
-                        top: 30, left: 15, right: 15, bottom: 0),
+                    margin: EdgeInsets.only(
+                        top: 20.h, left: 15.w, right: 15.w, bottom: 0),
                     padding: const EdgeInsets.only(left: 25),
-                    child: const Text(
-                      'New Password',
-                      style: TextStyle(
+                    child:  Text(
+                      appCurrentPasswordEn.tr,
+                      style: const TextStyle(
                         color: Color(0xffFEA633),
                         decoration: TextDecoration.underline,
                       ),
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 5, left: 15, right: 15),
-                    padding: const EdgeInsets.all(10),
+                    margin:  EdgeInsets.only(top: 5.h, left: 15.w, right: 15.w),
+                    padding:  EdgeInsets.all(10.w),
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white70),
-                        borderRadius: BorderRadius.circular(20)),
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(20.r)),
                     child: Obx(
                       () => TextField(
                         enabled: _controller.isVerified.value,
@@ -180,15 +170,15 @@ class AccountPage extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .headline5
-                            ?.copyWith(color: Colors.white70),
+                            ?.copyWith(color: Colors.white),
                         obscureText: (_controller.isPasswordShown.value),
                         decoration: InputDecoration(
-                          hintText: 'Type new Password',
+                          hintText: appNewPasswordEn.tr,
                           suffixIcon: IconButton(
                             icon: Icon(
                               _controller.suffix,
-                              size: 35,
-                              color: Colors.white70,
+                              size: 20.h,
+                              color: Colors.white,
                             ),
                             onPressed: () {
                               print('tapped');
@@ -196,16 +186,16 @@ class AccountPage extends StatelessWidget {
                             },
                           ),
                           prefixIcon: IconButton(
-                            icon: const Icon(
+                            icon:  Icon(
                               Icons.lock,
-                              size: 35,
-                              color: Colors.white70,
+                              size: 20.h,
+                              color: Colors.white,
                             ),
                             onPressed: () {},
                           ),
                           hintStyle:
                               Theme.of(context).textTheme.bodyText1?.copyWith(
-                                    color: Colors.white70,
+                                    color: Colors.white,
                                   ),
                         ),
                       ),
@@ -214,20 +204,19 @@ class AccountPage extends StatelessWidget {
                   Center(
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20.r),color: Colors.blue,
                       ),
-                      margin: const EdgeInsets.only(top: 20),
+                      margin: EdgeInsets.only(top: 20.h),
 
                       child: TextButton(
                         onPressed: () {
-                          // print('ali');
                           _controller.verifyCurrentPassword();
                         },
-                        child: const Text(
-                          'Save Password',
+                        child:  Text(
+                          appSavePasswordEn.tr,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 15.0,
+                              fontSize: 15.0.sp,
                               fontWeight: FontWeight.w500),
                         ),
                       ),
@@ -255,41 +244,42 @@ class AccountPage extends StatelessWidget {
         children: [
           Container(
             margin:
-                const EdgeInsets.only(top: 30, left: 15, right: 15, bottom: 5),
-            padding: const EdgeInsets.only(left: 25),
+                 EdgeInsets.only(top: 30.h, left: 15.w, right: 15.w, bottom: 5.h),
+            padding:  EdgeInsets.only(left: 25.w),
             child: Text(
               label,
               style: const TextStyle(
-                color: const Color(0xffFEA633),
+                color: Color(0xffFEA633),
                 decoration: TextDecoration.underline,
               ),
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white70),
-              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(20.r),
             ),
-            margin: const EdgeInsets.only(top: 0, left: 15, right: 15),
-            padding: const EdgeInsets.all(10),
+            margin: EdgeInsets.only(top: 0, left: 15.w, right: 15.w),
+            padding:  EdgeInsets.all(10.w),
             child: Row(
               children: [
                 Icon(
                   icon,
-                  color: Colors.white70,
-                  size: 45,
+                  color: Colors.white,
+                  size: 20.h,
                 ),
-                const SizedBox(
-                  width: 20,
+                 SizedBox(
+                  width: 20.w,
                 ),
                 Expanded(
                     child: Text(
                   text,
                   maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: Theme.of(context)
                       .textTheme
                       .headline5
-                      ?.copyWith(color: Colors.white70),
+                      ?.copyWith(color: Colors.white),
                 )),
               ],
             ),

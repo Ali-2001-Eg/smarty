@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
+import 'custom_bottom_navbar.dart';
 
 class CustomNavItem extends StatelessWidget {
   final IconData icon;

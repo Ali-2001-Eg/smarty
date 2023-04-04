@@ -1,21 +1,25 @@
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/cache_helper/cache_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../shared/constatns/app_strings.dart';
 
-class LanguageController extends GetxController{
- 
+class LanguageController extends GetxController {
   var locale = eng;
-  var switchValue = false;
 
+  // to get locale as soon as the application launch
+  @override
+  void onInit() async {
+    locale = await getLanguage;
+    super.onInit();
+  }
 
-  Future<String> get getLanguage async{
+  Future<String> get getLanguage async {
     return await CacheHelper.getData(key: 'lang');
   }
-  Future<void> saveLanguage(String lang)async{
+
+  Future<void> saveLanguage(String lang) async {
     await CacheHelper.saveData(key: 'lang', value: lang);
   }
+
   void changeLanguage(String lang) {
     //if lang is already english return null
     if (locale == lang) {
@@ -23,7 +27,7 @@ class LanguageController extends GetxController{
     } else if (lang == arb) {
       locale = arb;
       saveLanguage(arb);
-    }else{
+    } else {
       locale = eng;
       saveLanguage(eng);
     }
