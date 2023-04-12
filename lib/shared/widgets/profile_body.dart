@@ -15,7 +15,7 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 250.h),
+      padding: EdgeInsets.only(bottom: 20.h),
       child: Column(
         children: [
           const ProfilePic(),

@@ -15,8 +15,11 @@ class HomeLayoutPage extends StatelessWidget {
       extendBody: true,
       drawer: myDrawer(context, fromGetStarted: false),
       appBar: AppBar(
-        backgroundColor: const Color(0xff1A3993),
+        backgroundColor: const Color(0xff007EFF),
         centerTitle: true,
+        elevation: 0,
+        bottomOpacity: 0,
+        // toolbarHeight: 200,
         title: Text(
           'Smarty',
           style: Theme.of(context)
@@ -24,11 +27,11 @@ class HomeLayoutPage extends StatelessWidget {
               .displaySmall
               ?.copyWith(color: const Color(0xffFEA633)),
         ),
-        actions: [
+        actions: const [
           // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
           CircleAvatar(
-            radius: 25.r,
-            backgroundImage: const AssetImage('assets/images/logo.png'),
+            radius: 35,
+            backgroundImage: AssetImage('assets/images/logo.png'),
           )
         ],
       ),

@@ -48,7 +48,7 @@ class GetStartedPage extends StatelessWidget {
                           padding: EdgeInsets.only(top: 20.h, left: 20.w),
                           alignment: Alignment.topLeft,
                           child: CircleAvatar(
-                            radius: 30.r,
+                            radius: 30 ,
                             backgroundImage:
                                 const AssetImage('assets/images/logo.png'),
                           ),
@@ -94,7 +94,7 @@ class GetStartedPage extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                       ),
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(10.r),
+                        borderRadius: BorderRadius.circular(10 ),
                         child: ElevatedButton(
                           onPressed: () {
                             CacheHelper.saveData(key: 'getStarted', value: true)
@@ -144,7 +144,7 @@ class GetStartedPage extends StatelessWidget {
                           GestureDetector(
                         onTap: () => null,
                         child: Container(
-                          margin: EdgeInsets.only(right: 20.r, top: 15.h),
+                          margin: EdgeInsets.only(right: 20 , top: 15.h),
                           height: 220.h,
                           width: width - 20,
                           decoration: BoxDecoration(
@@ -154,7 +154,7 @@ class GetStartedPage extends StatelessWidget {
                               ),
                               fit: BoxFit.fill,
                             ),
-                            borderRadius: BorderRadius.circular(30.r),
+                            borderRadius: BorderRadius.circular(30 ),
                             color:
                                 index.isEven ? Colors.lightBlue : Colors.purple,
                           ),
@@ -195,7 +195,7 @@ class GetStartedPage extends StatelessWidget {
                           GestureDetector(
                             onTap: () => null,
                             child: Container(
-                              margin: EdgeInsets.only(right: 20.r, top: 15.h),
+                              margin: EdgeInsets.only(right: 20 , top: 15.h),
                               height: 220.h,
                               width: width - 20,
                               decoration: BoxDecoration(
@@ -205,7 +205,7 @@ class GetStartedPage extends StatelessWidget {
                                   ),
                                   fit: BoxFit.fill,
                                 ),
-                                borderRadius: BorderRadius.circular(30.r),
+                                borderRadius: BorderRadius.circular(30 ),
                                 color:
                                 index.isEven ? Colors.lightBlue : Colors.purple,
                               ),
@@ -247,7 +247,7 @@ class GetStartedPage extends StatelessWidget {
                           GestureDetector(
                             onTap: () => null,
                             child: Container(
-                              margin: EdgeInsets.only(right: 20.r, top: 15.h),
+                              margin: EdgeInsets.only(right: 20 , top: 15.h),
                               height: 220.h,
                               width: width - 20,
                               decoration: BoxDecoration(
@@ -257,7 +257,7 @@ class GetStartedPage extends StatelessWidget {
                                   ),
                                   fit: BoxFit.fill,
                                 ),
-                                borderRadius: BorderRadius.circular(30.r),
+                                borderRadius: BorderRadius.circular(30 ),
                                 color:
                                 index.isEven ? Colors.lightBlue : Colors.purple,
                               ),
@@ -300,7 +300,7 @@ class GetStartedPage extends StatelessWidget {
                           GestureDetector(
                             onTap: () => null,
                             child: Container(
-                              margin: EdgeInsets.only(right: 20.r, top: 15.h),
+                              margin: EdgeInsets.only(right: 20 , top: 15.h),
                               height: 220.h,
                               width: width - 20,
                               decoration: BoxDecoration(
@@ -310,7 +310,7 @@ class GetStartedPage extends StatelessWidget {
                                   ),
                                   fit: BoxFit.fill,
                                 ),
-                                borderRadius: BorderRadius.circular(30.r),
+                                borderRadius: BorderRadius.circular(30 ),
                                 color:
                                 index.isEven ? Colors.lightBlue : Colors.purple,
                               ),

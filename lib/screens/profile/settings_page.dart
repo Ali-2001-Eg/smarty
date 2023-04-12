@@ -11,10 +11,13 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put<LanguageController>(LanguageController());
     return Scaffold(
       appBar: AppBar(
         title: Text(appSettingsEn.tr),
         centerTitle: true,
+        leading: IconButton(onPressed: ()=>Get.back(),icon: Icon(Icons.arrow_back_ios)),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

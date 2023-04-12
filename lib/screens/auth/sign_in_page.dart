@@ -155,7 +155,7 @@ class SignInPage extends StatelessWidget {
                                     ),
                                     decoration: BoxDecoration(
                                       color: Colors.red,
-                                      borderRadius: BorderRadius.circular(25.r),
+                                      borderRadius: BorderRadius.circular(25 ),
                                     ),
                                   ),
                                 ),
@@ -205,7 +205,7 @@ class SignInPage extends StatelessWidget {
                                           color: const Color(0xffFEA633),
                                           width: 2),
                                       borderRadius:
-                                          BorderRadius.circular(15.r)),
+                                          BorderRadius.circular(15 )),
                                   child: OTPTextField(
                                     keyboardType: TextInputType.phone,
                                     controller: otpController,
@@ -213,7 +213,7 @@ class SignInPage extends StatelessWidget {
                                     width: double.maxFinite,
                                     textFieldAlignment:
                                         MainAxisAlignment.spaceAround,
-                                    outlineBorderRadius: 15.r,
+                                    outlineBorderRadius: 15 ,
                                     style: TextStyle(
                                         color: Colors.red,
                                         fontSize: 20.sp,
@@ -286,7 +286,7 @@ class SignInPage extends StatelessWidget {
                                           Container(
                                             decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(20.r),
+                                                    BorderRadius.circular(20 ),
                                                 border: Border.all(
                                                     color: Colors.blue),
                                                 color: Colors.white70,
@@ -324,7 +324,7 @@ class SignInPage extends StatelessWidget {
                                           Container(
                                             decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(20.r),
+                                                    BorderRadius.circular(20 ),
                                                 border: Border.all(
                                                     color: Colors.blue),
                                                 color: Colors.white70,

@@ -75,13 +75,13 @@ class _SplashScreenState extends State<SplashScreen>
   }
   //to dispose viewing some pages more than once
   void goToWidget(){
-    bool? onBoarding = CacheHelper.getData(key: 'onBoarding');
-    bool? token = CacheHelper.getData(key: 'token');
-    bool? getStarted = CacheHelper.getData(key: 'getStarted');
+    var onBoarding = CacheHelper.getData(key: 'onBoarding');
+    var token = CacheHelper.getData(key: 'token');
+    var getStarted = CacheHelper.getData(key: 'getStarted');
 //to determine which widget will start the app
-    if (onBoarding != null) {
-      if (token != null) {
-        if(getStarted!=null){
+    if (onBoarding != '') {
+      if (token != '') {
+        if(getStarted!=''){
           Get.offNamed(RouteHelper.getHomeLayout());
         }else{
           Get.offNamed(RouteHelper.getInitialPage());

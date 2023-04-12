@@ -19,6 +19,7 @@ class ProfilePage extends StatelessWidget {
               image: AssetImage('assets/images/stylings.png'),fit: BoxFit.cover),
         ),
         child: const SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: ProfileBody(),
         ),
       );

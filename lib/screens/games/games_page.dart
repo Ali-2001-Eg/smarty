@@ -44,7 +44,7 @@ class GamesPage extends StatelessWidget {
       onTap: () {},
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(20 ),
           color: const Color(0xff1A3993).withAlpha(100),
         ),
         margin: EdgeInsets.only(top: 20.h, bottom: 20.h, right: 20.w),
@@ -57,7 +57,7 @@ class GamesPage extends StatelessWidget {
                 left: 15.w,top: 20.h,bottom: 5.h
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
+                borderRadius: BorderRadius.circular(20 ),
               ),
               child: Column(
                 children: [
@@ -79,7 +79,7 @@ class GamesPage extends StatelessWidget {
                         ),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.circular(30.r),
+                      borderRadius: BorderRadius.circular(30 ),
                       color: Colors.purple,
                     ),
                   ),

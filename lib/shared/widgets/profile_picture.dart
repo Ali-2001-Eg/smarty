@@ -10,7 +10,7 @@ class ProfilePic extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 115.h,
-      width: 115.w,
+      width: 115.h,
       child: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
@@ -27,7 +27,7 @@ class ProfilePic extends StatelessWidget {
               child: TextButton(
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.r),
+                    borderRadius: BorderRadius.circular(50 ),
                   ),
                   backgroundColor:  Colors.white70,
                 ),

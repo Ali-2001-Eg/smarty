@@ -47,5 +47,17 @@ const Map<String, String> ar = {
   appDeleteEn:appDeleteAr,
   appCancelEn:appCancelAr,
   appConfirmEn:appConfirmAr,
-  appDeleteAlertMessageEn:appDeleteAlertMessageAr
+  appDeleteAlertMessageEn:appDeleteAlertMessageAr,
+  appPlayAsYouWantEn:appPlayAsYouWantAr,
+  appAboutUsSubTitleEn:appAboutUsSubTitleAr,
+  appOnlineAccessEn:appOnlineAccessAr,
+  appFullDaySessionsEn:appFullDaySessionsAr,
+  appFriendlyPlaceEn:appFriendlyPlaceAr,
+  appVariedGamesEn:appVariedGamesAr,
+  appOurCoreValuesEn:appOurCoreValuesAr,
+  appLearningAndFunEn:appLearningAndFunAr,
+  appDirectCommunicationsEn:appDirectCommunicationsAr,
+  appEfficiencyEn:appEfficiencyAr,
+  appCuteEnvironmentEn:appCuteEnvironmentAr,
+  appCoreSubTitleEn:appCoreSubTitleAr,
 };

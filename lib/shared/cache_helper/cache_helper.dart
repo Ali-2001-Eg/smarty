@@ -15,7 +15,7 @@ class CacheHelper {
   }
 
 //get the key of mode status on the main method
-  static dynamic getData({required String key}) {
+  static  getData({required String key}) {
     //dynamic because we don't know the type returned
     return sharedPreferences.get(key);
   }

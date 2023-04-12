@@ -24,10 +24,12 @@ class AccountPage extends StatelessWidget {
                 ?.copyWith(color: Colors.white)),
         centerTitle: true,
         elevation: 0,
-        actions:  [
+        leading: IconButton(onPressed: ()=>Get.back(),icon: Icon(Icons.arrow_back_ios)),
+        automaticallyImplyLeading: false,
+        actions:  const [
           CircleAvatar(
-            radius: 25.r,
-            backgroundImage: const AssetImage('assets/images/logo.png'),
+            radius: 25 ,
+            backgroundImage: AssetImage('assets/images/logo.png'),
           )
         ],
       ),
@@ -68,7 +70,7 @@ class AccountPage extends StatelessWidget {
                 padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(20.r)),
+                    borderRadius: BorderRadius.circular(20 )),
                 child: Obx(
                   () => TextFormField(
                     validator: (String? value) {
@@ -121,7 +123,7 @@ class AccountPage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20.r),
+                    borderRadius: BorderRadius.circular(20 ),
                   ),
                   padding: EdgeInsets.all(5.w),
                   child: TextButton(
@@ -162,7 +164,7 @@ class AccountPage extends StatelessWidget {
                     padding:  EdgeInsets.all(10.w),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(20.r)),
+                        borderRadius: BorderRadius.circular(20 )),
                     child: Obx(
                       () => TextField(
                         enabled: _controller.isVerified.value,
@@ -204,7 +206,7 @@ class AccountPage extends StatelessWidget {
                   Center(
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.r),color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20 ),color: Colors.blue,
                       ),
                       margin: EdgeInsets.only(top: 20.h),
 
@@ -257,7 +259,7 @@ class AccountPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white),
-              borderRadius: BorderRadius.circular(20.r),
+              borderRadius: BorderRadius.circular(20 ),
             ),
             margin: EdgeInsets.only(top: 0, left: 15.w, right: 15.w),
             padding:  EdgeInsets.all(10.w),

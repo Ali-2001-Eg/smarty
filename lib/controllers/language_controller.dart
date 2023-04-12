@@ -8,12 +8,12 @@ class LanguageController extends GetxController {
   // to get locale as soon as the application launch
   @override
   void onInit() async {
-    locale = await getLanguage;
+    locale =  getLanguage;
     super.onInit();
   }
 
-  Future<String> get getLanguage async {
-    return await CacheHelper.getData(key: 'lang');
+  String get getLanguage {
+    return CacheHelper.getData(key: 'lang');
   }
 
   Future<void> saveLanguage(String lang) async {

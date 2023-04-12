@@ -38,21 +38,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put<LanguageController>(LanguageController());
+
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Smarty',
         // home: const SignInPage(),
         theme: ThemeData(),
-        locale: Locale(CacheHelper.getData(key: 'lang').toString()),
+        locale: Locale(CacheHelper.getData(key: 'lang') ?? arb),
         fallbackLocale: Locale(arb),
         translations: AppLocalization(),
         initialRoute: RouteHelper.getSplashPage(),
         getPages: RouteHelper.getRoutes(),
-        textDirection: Get.find<LanguageController>().locale != eng
-            ? TextDirection.rtl
-            : TextDirection.ltr,
+        // textDirection: Get.find<LanguageController>().locale != eng
+        //     ? TextDirection.rtl
+        //     : TextDirection.ltr,
       ),
     );
   }

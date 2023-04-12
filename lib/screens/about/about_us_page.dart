@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
+import '../../shared/constatns/locale_strings.dart';
 import '../../shared/widgets/my_drawer.dart';
 
 class AboutUsPage extends StatefulWidget {
@@ -38,11 +40,21 @@ class _AboutUsPageState extends State<AboutUsPage>
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: const Color(0xff007EFF),
       appBar: AppBar(
-        leading: IconButton(onPressed: ()=>Get.back(),icon: Icon(Icons.arrow_back_ios,color: Colors.white70,),),
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+            size: 30.h,
+          ),
+        ),
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xff1A3993),
+        backgroundColor: const Color(0xff007EFF),
         centerTitle: true,
+        elevation: 0,
+        bottomOpacity: 0,
         title: Text(
           'Smarty',
           style: Theme.of(context)
@@ -53,7 +65,7 @@ class _AboutUsPageState extends State<AboutUsPage>
         actions: const [
           // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
           CircleAvatar(
-            radius: 25,
+            radius: 30,
             backgroundImage: AssetImage('assets/images/logo.png'),
           )
         ],
@@ -62,125 +74,85 @@ class _AboutUsPageState extends State<AboutUsPage>
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/spalshLearn.png'),
+                  image: AssetImage('assets/images/stylings.png'),
                   fit: BoxFit.cover)),
           child: Padding(
-            padding: const EdgeInsets.only(top: 40, left: 30),
+            padding: EdgeInsets.only(
+              top: 20.h,
+            ),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Play as you learn',
+                    appPlayAsYouWantEn.tr,
+                    // textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
-                        .headline3
-                        ?.copyWith(color: Colors.white70),
+                        .headlineSmall
+                        ?.copyWith(color: Colors.white),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   Text(
-                    'Our philosophy is learning through play as we offer a stimulating environment for children.',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        ?.copyWith(color: const Color(0xffFEA633)),
+                    appAboutUsSubTitleEn.tr,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                        color: const Color(0xffFEA633),
+                        fontWeight: FontWeight.w400),
                   ),
                   _customRotationWithAnimation(
-                      'assets/images/about_1.png', 'Online Access'),
+                      'assets/images/about_1.png', appOnlineAccessEn.tr),
                   _customRotationWithAnimation(
-                      'assets/images/about_2.png', 'Full Day Sessions'),
+                      'assets/images/about_2.png', appFullDaySessionsEn.tr),
                   _customRotationWithAnimation(
-                      'assets/images/about_3.png', 'Friendly Place'),
+                      'assets/images/about_3.png', appFriendlyPlaceEn.tr),
                   _customRotationWithAnimation(
-                      'assets/images/about_4.png', 'Varied Games'),
-                  const SizedBox(
-                    height: 30,
+                      'assets/images/about_4.png', appVariedGamesEn.tr),
+                  Text(
+                    appOurCoreValuesEn.tr,
+                    style: Theme.of(context).textTheme.headline5?.copyWith(
+                        color: const Color(0xffFEA633),
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w400),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Center(
-                    child: Text(
-                      'Our Core values',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          ?.copyWith(color: const Color(0xffFEA633), fontSize: 30),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  _coreValue('assets/images/about_5.png', 'Learning & Fun',
-                      'Prissy expectant involuntarily limpet until cobra less dear so overabundant contagio'),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 30.h,
                   ),
                   _coreValue(
-                      'assets/images/about_6.png',
-                      'Direct Communications',
-                      'Prissy expectant involuntarily limpet until cobra less dear so overabundant contagio'),
-                  const SizedBox(
-                    height: 20,
+                    'assets/images/about_5.png',
+                    appLearningAndFunEn.tr,
+                    appCoreSubTitleEn.tr,
+                  ),
+                  SizedBox(
+                    height: 20.h,
                   ),
                   _coreValue(
-                      'assets/images/about_7.png',
-                      'Efficiency and Effectiveness',
-                      'Prissy expectant involuntarily limpet until cobra less dear so overabundant contagio'),
-                  const SizedBox(
-                    height: 20,
+                    'assets/images/about_6.png',
+                    appDirectCommunicationsEn.tr,
+                    appCoreSubTitleEn.tr,
                   ),
-                  _coreValue('assets/images/about_8.png', 'Cute Environment',
-                      'Prissy expectant involuntarily limpet until cobra less dear so overabundant contagio'),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
-                  Center(
-                    child: Text(
-                      'Certifications',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          ?.copyWith(color: const Color(0xffFEA633), fontSize: 30),
-                    ),
+                  _coreValue(
+                    'assets/images/about_7.png',
+                    appEfficiencyEn.tr,
+                    appCoreSubTitleEn.tr,
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
-                  //certifications
-                  Container(
-                    height: 250,
-                    width: width-20,
-                    margin: const EdgeInsets.only(right: 25, ),
-                    child: PageView.builder(
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: 4,
-                      controller: PageController(viewportFraction: 0.88),
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: const EdgeInsets.only(right: 20, top: 15),
-                          height: 220,
-                          width: width - 20,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: AssetImage(
-                                'assets/images/certification.png',
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(30),
-                            color:
-                                index.isEven ? Colors.lightBlue : Colors.purple,
-                          ),
-                        );
-                      },
-                    ),
+                  _coreValue(
+                    'assets/images/about_8.png',
+                    appCuteEnvironmentEn.tr,
+                    appCoreSubTitleEn.tr,
                   ),
-
+                  SizedBox(
+                    height: 20.h,
+                  ),
                 ],
               ),
             ),
@@ -191,30 +163,32 @@ class _AboutUsPageState extends State<AboutUsPage>
   Widget _customRotationWithAnimation(String path, String text) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20 ),
         color: const Color(0xff1A3993).withAlpha(100),
       ),
-      margin: const EdgeInsets.only(top: 20, bottom: 20, right: 20),
-      padding: const EdgeInsets.only(left: 20),
-      height: 200,
+      margin: EdgeInsets.all(20.w),
+      padding:
+          EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h, bottom: 20.h),
+      height: 150.h,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           RotationTransition(
             turns: _animation,
             child: CircleAvatar(
-              radius: 50,
+              radius: 40 ,
               backgroundImage: AssetImage(path),
             ),
           ),
-          const SizedBox(
-            width: 20,
+          SizedBox(
+            width: 20.w,
           ),
           Text(
             text,
             style: Theme.of(context)
                 .textTheme
                 .bodyText2
-                ?.copyWith(color: Colors.white70, fontSize: 26),
+                ?.copyWith(color: Colors.white, fontSize: 20.sp),
           ),
         ],
       ),
@@ -224,8 +198,8 @@ class _AboutUsPageState extends State<AboutUsPage>
   Widget _coreValue(String imgPath, String headText, String subHeadText) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-      padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
-      margin: const EdgeInsets.only(right: 10),
+      padding: EdgeInsets.all(5.w),
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: const Color(0xff1A3993).withAlpha(100),
@@ -233,9 +207,8 @@ class _AboutUsPageState extends State<AboutUsPage>
       child: Row(
         children: [
           Container(
-            margin: const EdgeInsets.only(right: 20, top: 15),
-            height: 150,
-            width: width - 250,
+            height: 150.h,
+            width: 120.w,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
@@ -243,31 +216,37 @@ class _AboutUsPageState extends State<AboutUsPage>
                 ),
                 fit: BoxFit.cover,
               ),
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(20 ),
               color: Colors.purple,
             ),
           ),
+          const VerticalDivider(
+            color: Colors.blue,
+            thickness: 5,
+          ),
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   headText,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5
-                      ?.copyWith(color: Colors.white70, fontSize: 22),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                      color: Colors.white,
+                      fontSize: 20.sp,
+                      decoration: TextDecoration.underline,
+                      decorationStyle: TextDecorationStyle.solid,
+                      decorationColor: const Color(0xffFEA633)),
                 ),
-                const Divider(
-                  color: Color(0xffFEA633),
-                  endIndent: 120,
-                  thickness: 2.5,
+                SizedBox(
+                  height: 15.h,
                 ),
                 Text(subHeadText,
+                    textAlign: TextAlign.end,
                     style: Theme.of(context)
                         .textTheme
                         .bodyText2
-                        ?.copyWith(color: Colors.white70)),
+                        ?.copyWith(color: Colors.white)),
               ],
             ),
           ),

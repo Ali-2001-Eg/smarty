@@ -23,17 +23,17 @@ class ProfileMenu extends StatelessWidget {
           primary: const Color(0xff090A4A),
           padding: EdgeInsets.all(20.w),
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           backgroundColor:
               Theme.of(context).primaryColor.withAlpha(150),
         ),
         onPressed: press,
         child: Row(
           children: [
-            Icon(icon,color: Colors.white,),
+            Icon(icon,color: Colors.white,size: 25.h,),
             SizedBox(width: 20.w),
-            Expanded(child: Text(text,style: const TextStyle(color: Colors.white),)),
-            const Icon(Icons.arrow_forward_ios,color: Colors.white,),
+            Expanded(child: Text(text,style:  TextStyle(color: Colors.white,fontSize:15.sp ),)),
+             Icon(Icons.arrow_forward_ios,color: Colors.white,size: 20.h,),
           ],
         ),
       ),

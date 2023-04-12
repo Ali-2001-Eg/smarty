@@ -80,7 +80,7 @@ class ForgotPassword extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.red,
-                        borderRadius: BorderRadius.circular(25.r),
+                        borderRadius: BorderRadius.circular(25 ),
                       ),
                     ),
                   ),

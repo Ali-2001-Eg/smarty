@@ -114,7 +114,7 @@ class NotificationsPage extends StatelessWidget {
       padding: EdgeInsets.only(left: 20.w, bottom: 10.h, top: 10.h),
       child: ListTile(
         leading: CircleAvatar(
-          radius: 28.r,
+          radius: 28 ,
           backgroundImage: AssetImage(item.imagePath),
         ),
         title: Text(
