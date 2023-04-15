@@ -30,7 +30,7 @@ class HomeLayoutPage extends StatelessWidget {
         actions: const [
           // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
           CircleAvatar(
-            radius: 35,
+            radius: 30,
             backgroundImage: AssetImage('assets/images/logo.png'),
           )
         ],

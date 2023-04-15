@@ -38,13 +38,15 @@ class GamesPage extends StatelessWidget {
 
   Widget buildGameItemTile(
     GameItems item,
-    context,
+    BuildContext context,
   ) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => WebViewScreen(url: item.gameUrl));
+      },
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20 ),
+          borderRadius: BorderRadius.circular(20),
           color: const Color(0xff1A3993).withAlpha(100),
         ),
         margin: EdgeInsets.only(top: 20.h, bottom: 20.h, right: 20.w),
@@ -52,12 +54,10 @@ class GamesPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only( bottom: 20.h, right: 15.w),
-              padding: EdgeInsets.only(
-                left: 15.w,top: 20.h,bottom: 5.h
-              ),
+              margin: EdgeInsets.only(bottom: 20.h, right: 15.w),
+              padding: EdgeInsets.only(left: 15.w, top: 20.h, bottom: 5.h),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20 ),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
                 children: [
@@ -79,7 +79,7 @@ class GamesPage extends StatelessWidget {
                         ),
                         fit: BoxFit.cover,
                       ),
-                      borderRadius: BorderRadius.circular(30 ),
+                      borderRadius: BorderRadius.circular(30),
                       color: Colors.purple,
                     ),
                   ),

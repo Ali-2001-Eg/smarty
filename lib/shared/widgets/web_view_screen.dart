@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/shared/constatns/app_strings.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import '../../controllers/language_controller.dart';
 class WebViewScreen extends StatelessWidget {
   final String url;
-   WebViewScreen({Key? key,required this.url}) : super(key: key);
+   const WebViewScreen({Key? key,required this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,30 +31,18 @@ class WebViewScreen extends StatelessWidget {
       )
       ..loadRequest(Uri.parse(url));
 
+
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: ()=>Get.back(),icon: Icon(Icons.arrow_back_ios,color: Colors.white70,),),
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xff1A3993),
-        centerTitle: true,
-        title: Text(
-          'Smarty',
-          style: Theme.of(context)
-              .textTheme
-              .headline3
-              ?.copyWith(color: const Color(0xffFEA633)),
-        ),
-        actions: const [
-          // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
-          CircleAvatar(
-            radius: 25,
-            backgroundImage: AssetImage('assets/images/logo.png'),
-          )
-        ],
+        leading: IconButton(onPressed: ()=>Get.back(),icon: const Icon(Icons.home,color: Colors.white,),),
+       backgroundColor: const Color(0xff007EFF),
+        elevation: 0,
       ),
       body: WebViewWidget(
         controller: controller,
-
+        layoutDirection: Get.find<LanguageController>().locale != eng
+            ? TextDirection.rtl
+            : TextDirection.ltr,
       ),
     );
   }

@@ -3,16 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/controllers/language_controller.dart';
-import 'package:graduation_project/get_started/get_started_page.dart';
-import 'package:graduation_project/language/ar.dart';
-import 'package:graduation_project/screens/auth/sign_in_page.dart';
-import 'package:graduation_project/screens/auth/sign_up_page.dart';
 import 'package:graduation_project/shared/cache_helper/cache_helper.dart';
 import 'package:graduation_project/shared/constatns/app_strings.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
-
 import 'language/app_localization.dart';
-import 'on_boarding/on_boarding_page.dart';
 
 
 
@@ -24,21 +18,21 @@ void main() async {
   // CacheHelper.clearData(key: 'onBoarding');
   // CacheHelper.clearData(key: 'getStarted');
   //to remove status bar
-  SystemChrome.setEnabledSystemUIOverlays([
-    SystemUiOverlay.bottom,
-  ]);
-
-  runApp(MyApp());
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({
+  const MyApp({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
+   Get.put(LanguageController());
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -50,9 +44,9 @@ class MyApp extends StatelessWidget {
         translations: AppLocalization(),
         initialRoute: RouteHelper.getSplashPage(),
         getPages: RouteHelper.getRoutes(),
-        // textDirection: Get.find<LanguageController>().locale != eng
-        //     ? TextDirection.rtl
-        //     : TextDirection.ltr,
+        textDirection: Get.find<LanguageController>().locale != eng
+            ? TextDirection.rtl
+            : TextDirection.ltr,
       ),
     );
   }
