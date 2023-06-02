@@ -35,7 +35,7 @@ class WebViewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(onPressed: ()=>Get.back(),icon: const Icon(Icons.home,color: Colors.white,),),
-       backgroundColor: const Color(0xff007EFF),
+       backgroundColor: const Color(0xffF7F9F6),
         elevation: 0,
       ),
       body: WebViewWidget(

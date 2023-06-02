@@ -12,26 +12,29 @@ class GamesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //loading model
     List<GameItems> items = List.of(allGames);
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color(0xff007EFF),
-        image: DecorationImage(
-            image: AssetImage(
-              'assets/images/stylings.png',
+
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: const Color(0xffF7F9F6),
+        appBar: AppBar(
+          bottom: TabBar(tabs: [
+            Tab(
+              child: Text('Math Games'),
+              icon: Icon(Icons.add),
             ),
-            fit: BoxFit.cover),
-      ),
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          var item = items[index];
-          return buildGameItemTile(
-            item,
-            context,
-          );
-        },
-        itemCount: items.length,
-        padding: EdgeInsets.only(left: 20.w),
+            Tab(
+              child: Text('Language Games'),
+              icon: Icon(Icons.menu_book),
+            ),
+          ]),
+        ),
+        body: TabBarView(
+          children: [
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_transit)
+          ],
+        ),
       ),
     );
   }
@@ -42,7 +45,7 @@ class GamesPage extends StatelessWidget {
   ) {
     return InkWell(
       onTap: () {
-        Get.to(() => WebViewScreen(url: item.gameUrl));
+        Get.to(() => WebViewScreen(url: item.gameUrl!));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -62,7 +65,7 @@ class GamesPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    item.title,
+                    item.title!,
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium
@@ -75,7 +78,7 @@ class GamesPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                          item.imagePath,
+                          item.imagePath!,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -91,4 +94,49 @@ class GamesPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _listTile(String label, BuildContext context, IconData icon) => Stack(
+        children: [
+          const Positioned.fill(child: SizedBox(height: 250)),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 200.h,
+              width: 250.w,
+              decoration: BoxDecoration(
+                color: const Color(0xff6CCDCA).withOpacity(.85),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 10,
+            right: 5,
+            child: Container(
+              height: 60.h,
+              width: 240.w,
+              margin: EdgeInsets.only(bottom: 5.h),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Center(
+                child: Text(
+                  label,
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+              top: 40,
+              right: MediaQuery.of(context).size.width / 4,
+              child: Icon(
+                icon,
+                color: Colors.grey[800],
+                size: 60.h,
+              )),
+        ],
+      );
 }

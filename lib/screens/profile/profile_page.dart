@@ -13,11 +13,7 @@ class ProfilePage extends StatelessWidget {
     return
       Container(
         padding: EdgeInsets.only(top: 10.h),
-        decoration: const BoxDecoration(
-          color: Color(0xff007EFF),
-          image: DecorationImage(
-              image: AssetImage('assets/images/stylings.png'),fit: BoxFit.cover),
-        ),
+
         child: const SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: ProfileBody(),

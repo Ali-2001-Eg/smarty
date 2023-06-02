@@ -2,38 +2,45 @@ import '../shared/widgets/game_item.dart';
 
 List<GameItems> allGames = [
   const GameItems(
-    'assets/images/splashLearn2.png',
-    'PancMan Game',
-    'https://play.unity.com/mg/other/word-lhkj',
+    imagePath: 'assets/images/splashLearn2.png',
+    title: 'PancMan Game',
+    gameUrl: 'https://play.unity.com/mg/other/word-lhkj',
+    isMathGame: true,
   ),
   const GameItems(
-    'assets/images/splashLearn2.png',
-    'Balloon Game',
-    'https://play.unity.com/mg/other/subtractiongame',
+    imagePath: 'assets/images/splashLearn2.png',
+    title: 'Balloon Game',
+    gameUrl: 'https://play.unity.com/mg/other/subtractiongame',
+    isMathGame: true,
   ),
   const GameItems(
-    'assets/images/splashLearn2.png',
+    imagePath: 'assets/images/splashLearn2.png',title:
     'Counting Game',
-    'https://www.y8.com/games/flappy_ball',
+    gameUrl :'https://www.y8.com/games/flappy_ball',
+    isMathGame: true,
   ),
   const GameItems(
-    'assets/images/splashLearn2.png',
+    imagePath: 'assets/images/splashLearn2.png',title:
     'Alphabet Game',
-    'https://www.y8.com/games/flappy_ball',
+    gameUrl:'https://www.y8.com/games/flappy_ball',
+    isMathGame: false,
   ),
   const GameItems(
-    'assets/images/splashLearn2.png',
-    'Word Game',
-    'https://play.unity.com/mg/other/word-lhkj',
+    imagePath: 'assets/images/splashLearn2.png',
+    title: 'Word Game',
+    gameUrl: 'https://play.unity.com/mg/other/word-lhkj',
+    isMathGame: false,
   ),
   const GameItems(
-    'assets/images/splashLearn2.png',
-    'Letter Game',
-    'https://play.unity.com/mg/other/lettergame',
+    imagePath: 'assets/images/splashLearn2.png',
+    title: 'Letter Game',
+    gameUrl: 'https://play.unity.com/mg/other/lettergame',
+    isMathGame: false,
   ),
   const GameItems(
-    'assets/images/splashLearn2.png',
-    'Math Game',
-    'https://www.y8.com/games/flappy_ball',
+    imagePath: 'assets/images/splashLearn2.png',
+    title: 'Math Game',
+    gameUrl: 'https://www.y8.com/games/flappy_ball',
+    isMathGame: true,
   ),
 ];

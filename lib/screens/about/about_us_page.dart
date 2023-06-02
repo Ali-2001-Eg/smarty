@@ -40,7 +40,7 @@ class _AboutUsPageState extends State<AboutUsPage>
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: const Color(0xff007EFF),
+      backgroundColor: const Color(0xffF7F9F6),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -51,7 +51,7 @@ class _AboutUsPageState extends State<AboutUsPage>
           ),
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xff007EFF),
+        backgroundColor: const Color(0xffF7F9F6),
         centerTitle: true,
         elevation: 0,
         bottomOpacity: 0,
@@ -72,10 +72,6 @@ class _AboutUsPageState extends State<AboutUsPage>
       ),
       body: Container(
           width: MediaQuery.of(context).size.width,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/stylings.png'),
-                  fit: BoxFit.cover)),
           child: Padding(
             padding: EdgeInsets.only(
               top: 20.h,
@@ -163,7 +159,7 @@ class _AboutUsPageState extends State<AboutUsPage>
   Widget _customRotationWithAnimation(String path, String text) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20 ),
+        borderRadius: BorderRadius.circular(20),
         color: const Color(0xff1A3993).withAlpha(100),
       ),
       margin: EdgeInsets.all(20.w),
@@ -176,7 +172,7 @@ class _AboutUsPageState extends State<AboutUsPage>
           RotationTransition(
             turns: _animation,
             child: CircleAvatar(
-              radius: 40 ,
+              radius: 40,
               backgroundImage: AssetImage(path),
             ),
           ),
@@ -216,7 +212,7 @@ class _AboutUsPageState extends State<AboutUsPage>
                 ),
                 fit: BoxFit.cover,
               ),
-              borderRadius: BorderRadius.circular(20 ),
+              borderRadius: BorderRadius.circular(20),
               color: Colors.purple,
             ),
           ),

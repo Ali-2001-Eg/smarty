@@ -9,10 +9,12 @@ import 'custom_nav_items.dart';
 
 
 PageController pageController = PageController(initialPage: 0);
-int currentIndex = 0;
+int currentIndex = pageController.initialPage;
 
 
 class CustomBottomNavigationBar extends StatefulWidget {
+  const CustomBottomNavigationBar({Key? key}) : super(key: key);
+
   @override
   _CustomBottomNavigationBarState createState() =>
       _CustomBottomNavigationBarState();

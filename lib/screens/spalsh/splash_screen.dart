@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
 
-import '../../get_started/get_started_page.dart';
 import '../../on_boarding/on_boarding_page.dart';
 import '../../shared/cache_helper/cache_helper.dart';
 import '../auth/sign_in_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
-
-
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -31,8 +28,7 @@ class _SplashScreenState extends State<SplashScreen>
     animation =
         CurvedAnimation(curve: Curves.easeInToLinear, parent: controller);
     //after animation go to a next page directly
-    Timer(const Duration(milliseconds: 2000),
-        () => goToWidget());
+    Timer(const Duration(milliseconds: 2000), () => goToWidget());
   }
 
   @override
@@ -44,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: const Color(0xff1A3993),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -53,39 +48,34 @@ class _SplashScreenState extends State<SplashScreen>
           ScaleTransition(
             scale: animation,
             child: const Center(
-              child: CircleAvatar(
-                radius: 100,
-                backgroundImage:  AssetImage(
-                  'assets/images/logo.png'
-                ),
-              )
-            ),
+                child: CircleAvatar(
+              radius: 100,
+              backgroundImage: AssetImage('assets/images/logo.png'),
+            )),
           ),
           Center(
             child: Text(
               'Smarty',
-              style: Theme.of(context).textTheme.headline2?.copyWith(
-                color: Colors.black
-              ),
+              style: Theme.of(context)
+                  .textTheme
+                  .headline2
+                  ?.copyWith(color: Colors.black),
             ),
           )
         ],
       ),
     );
   }
+
   //to dispose viewing some pages more than once
-  void goToWidget(){
+  void goToWidget() {
     var onBoarding = CacheHelper.getData(key: 'onBoarding');
     var token = CacheHelper.getData(key: 'token');
-    var getStarted = CacheHelper.getData(key: 'getStarted');
+
 //to determine which widget will start the app
     if (onBoarding != '') {
       if (token != '') {
-        if(getStarted!=''){
-          Get.offNamed(RouteHelper.getHomeLayout());
-        }else{
-          Get.offNamed(RouteHelper.getInitialPage());
-        }
+        Get.offNamed(RouteHelper.getInitialPage());
       } else {
         Get.offNamed(RouteHelper.getSignInPage());
       }
@@ -94,4 +84,3 @@ class _SplashScreenState extends State<SplashScreen>
     }
   }
 }
-

@@ -7,15 +7,17 @@ import 'package:graduation_project/shared/widgets/my_drawer.dart';
 import '../../shared/widgets/custom_bottom_navbar.dart';
 
 class HomeLayoutPage extends StatelessWidget {
-  const HomeLayoutPage({Key? key}) : super(key: key);
+  final bool isStudent;
+  const HomeLayoutPage({Key? key, required this.isStudent}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(isStudent);
     return Scaffold(
       extendBody: true,
       drawer: myDrawer(context, fromGetStarted: false),
       appBar: AppBar(
-        backgroundColor: const Color(0xff007EFF),
+        backgroundColor: const Color(0xffF7F9F6),
         centerTitle: true,
         elevation: 0,
         bottomOpacity: 0,
@@ -44,7 +46,7 @@ class HomeLayoutPage extends StatelessWidget {
           ProfilePage(),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }

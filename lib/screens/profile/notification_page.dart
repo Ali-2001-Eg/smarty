@@ -18,7 +18,7 @@ class NotificationsPage extends StatelessWidget {
     final NotificationsController controller =
         Get.put(NotificationsController());
     return Scaffold(
-      backgroundColor: const Color(0xff007EFF),
+      backgroundColor: const Color(0xffF7F9F6),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -27,7 +27,7 @@ class NotificationsPage extends StatelessWidget {
               Icons.arrow_back_ios,
               color: Colors.white,
             )),
-        backgroundColor: const Color(0xff007EFF),
+        backgroundColor: const Color(0xffF7F9F6),
         title: Text(appNotificationsEn.tr,
             style: Theme.of(context)
                 .textTheme
@@ -44,63 +44,7 @@ class NotificationsPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage('assets/images/stylings.png')),
-        ),
-        child: ListView.builder(
-          itemBuilder: (context, index) {
-            // print(items.length);
-            final item = items[index];
-            return Dismissible(
-                key: UniqueKey(),
-                confirmDismiss: (DismissDirection direction) async {
-                  return await showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        backgroundColor: Colors.white,
-                        title: Text(appConfirmEn.tr),
-                        content:  Text(
-                            appDeleteAlertMessageEn.tr,style: TextStyle(fontSize: 15.sp)),
-                        actions: <Widget>[
-                          TextButton(
-                              onPressed: () => Navigator.of(context).pop(true),
-                              child: Text(
-                                appDeleteEn.tr,
-                                style: const TextStyle(color: Colors.red),
-                              )),
-                          TextButton(
-                            onPressed: () => Navigator.of(context).pop(false),
-                            child:  Text(appCancelEn.tr),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                direction: DismissDirection.horizontal,
-                background: Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.only(right: 20.0.w),
-                  color: Colors.redAccent,
-                  child: const Icon(Icons.delete, color: Colors.white),
-                ),
-                secondaryBackground: Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.only(right: 20.0.w),
-                  color: Colors.redAccent,
-                  child: const Icon(Icons.delete, color: Colors.white),
-                ),
-                child: buildListTile(item));
-          },
-          itemCount: items.length,
-          padding:  EdgeInsets.only(top: 15.h, left: 20.w,bottom: 15.h),
-          physics: const  BouncingScrollPhysics(),
-        ),
-      ),
+      body: Container(),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/controllers/auth_controller.dart';
 import 'package:graduation_project/dependencies/auth_binding.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
@@ -11,16 +12,13 @@ import 'package:graduation_project/screens/assessment_exams/initial_assessment_p
 import 'package:graduation_project/screens/auth/forgot_password.dart';
 import 'package:graduation_project/screens/auth/sign_in_page.dart';
 import 'package:graduation_project/screens/auth/sign_up_page.dart';
-import 'package:graduation_project/screens/chat/chat_page.dart';
 import 'package:graduation_project/screens/content/content_page.dart';
-import 'package:graduation_project/screens/events/events.dart';
 import 'package:graduation_project/screens/profile/feedback_page.dart';
 import 'package:graduation_project/screens/games/games_page.dart';
 import 'package:graduation_project/screens/home/home_page.dart';
 import 'package:graduation_project/screens/profile/settings_page.dart';
 import 'package:graduation_project/screens/spalsh/splash_screen.dart';
 
-import '../../get_started/get_started_page.dart';
 
 class RouteHelper {
   static const String initial = '/';
@@ -66,7 +64,11 @@ class RouteHelper {
     //initial
     GetPage(
         name: initial,
-        page: () => const GetStartedPage(),
+        page: () {
+          return  HomeLayoutPage(
+          isStudent: Get.find<AuthController>().isStudent,
+        );
+        },
         transition: Transition.rightToLeft),
     //about
     GetPage(
@@ -91,7 +93,7 @@ class RouteHelper {
     //sign in
     GetPage(
       name: signIn,
-      page: () =>   SignInPage(),
+      page: () =>   const SignInPage(),
       transition: Transition.rightToLeft,
       binding: AuthBinding(),
     ),
@@ -100,11 +102,7 @@ class RouteHelper {
         name: signUp,
         page: () =>  SignUpPage(),
         transition: Transition.rightToLeft),
-    //chat
-    GetPage(
-        name: chat,
-        page: () => const ChatPage(),
-        transition: Transition.rightToLeft),
+
     //content
     GetPage(
         name: educationalContent,
@@ -130,11 +128,8 @@ class RouteHelper {
         name: splashScreen,
         page: () => const SplashScreen(),
         transition: Transition.rightToLeft),
-    //events
-    GetPage(
-        name: events,
-        page: () => const EventsPage(),
-        transition: Transition.rightToLeft),
+
+
     //on boarding
     GetPage(
         name: onBoarding,
@@ -144,11 +139,6 @@ class RouteHelper {
     GetPage(
         name: forgotPassword,
         page: () =>  ForgotPassword(),
-        transition: Transition.rightToLeft),
-    //home layout
-    GetPage(
-        name: homeLayout,
-        page: () => const HomeLayoutPage(),
         transition: Transition.rightToLeft),
     //profile
     GetPage(
