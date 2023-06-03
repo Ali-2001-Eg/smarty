@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/shared/constatns/locale_strings.dart';
 import 'package:graduation_project/shared/widgets/web_view_screen.dart';
 import '../../models/games_model.dart';
 import '../../shared/widgets/game_item.dart';
@@ -11,29 +12,64 @@ class GamesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //loading model
-    List<GameItems> items = List.of(allGames);
+    List<GameItems> mathItems = List.of(mathGames);
+    List<GameItems> langItems = List.of(langGames);
 
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: const Color(0xffF7F9F6),
+        backgroundColor: Colors.grey.shade50,
+        extendBody: true,
         appBar: AppBar(
-          bottom: TabBar(tabs: [
+          elevation: 0,
+          toolbarHeight: MediaQuery.of(context).size.height / 120,
+          backgroundColor: Colors.grey.shade50,
+          bottom: TabBar(
+
+              indicatorColor: const Color(0xff090A4A),tabs: [
             Tab(
-              child: Text('Math Games'),
-              icon: Icon(Icons.add),
+              child: Text(
+                mathGamesEn.tr,
+                style:  TextStyle(color: const Color(0xff090A4A),letterSpacing: 0,fontSize: 15.sp),
+              ),
+              icon: const Icon(Icons.add, color: Color(0xff090A4A)),
             ),
             Tab(
-              child: Text('Language Games'),
-              icon: Icon(Icons.menu_book),
+              child: Text(
+                langGamesEn.tr,
+                style:  TextStyle(color: const Color(0xff090A4A),letterSpacing: 0,fontSize: 15.sp),
+
+              ),
+              icon: const Icon(Icons.menu_book, color: Color(0xff090A4A)),
             ),
           ]),
         ),
-        body: TabBarView(
-          children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit)
-          ],
+        body: MediaQuery.removePadding(
+          context: context,
+          removeBottom: true,
+          child: TabBarView(
+            physics: const BouncingScrollPhysics(),
+            children: [
+              ListView.builder(
+                padding: EdgeInsets.only(bottom: 50.h),
+                itemCount: mathItems.length,
+                shrinkWrap: true,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return buildGameItemTile(mathItems[index], context);
+                },
+              ),
+              ListView.builder(
+                padding: EdgeInsets.only(bottom: 50.h),
+                itemCount: langItems.length,
+                shrinkWrap: true,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return buildGameItemTile(langItems[index], context);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -44,20 +80,12 @@ class GamesPage extends StatelessWidget {
     BuildContext context,
   ) {
     return InkWell(
-      onTap: () {
-        Get.to(() => WebViewScreen(url: item.gameUrl!));
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: const Color(0xff1A3993).withAlpha(100),
-        ),
-        margin: EdgeInsets.only(top: 20.h, bottom: 20.h, right: 20.w),
-        padding: EdgeInsets.only(left: 20.h),
+        onTap: () {
+          Get.to(() => WebViewScreen(url: item.gameUrl!));
+        },
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 20.h, right: 15.w),
               padding: EdgeInsets.only(left: 15.w, top: 20.h, bottom: 5.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -66,21 +94,19 @@ class GamesPage extends StatelessWidget {
                 children: [
                   Text(
                     item.title!,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(color: Colors.white),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: const Color(0xff090A4A),
+                        fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: 20.w, top: 15.h),
+                    margin: EdgeInsets.only(right: 20.w, top: 10.h),
                     height: 220.h,
-                    width: MediaQuery.of(context).size.width - 20,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
                           item.imagePath!,
                         ),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.purple,
@@ -90,53 +116,6 @@ class GamesPage extends StatelessWidget {
               ),
             )
           ],
-        ),
-      ),
-    );
+        ));
   }
-
-  Widget _listTile(String label, BuildContext context, IconData icon) => Stack(
-        children: [
-          const Positioned.fill(child: SizedBox(height: 250)),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 200.h,
-              width: 250.w,
-              decoration: BoxDecoration(
-                color: const Color(0xff6CCDCA).withOpacity(.85),
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 10,
-            right: 5,
-            child: Container(
-              height: 60.h,
-              width: 240.w,
-              margin: EdgeInsets.only(bottom: 5.h),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: Center(
-                child: Text(
-                  label,
-                  style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-              top: 40,
-              right: MediaQuery.of(context).size.width / 4,
-              child: Icon(
-                icon,
-                color: Colors.grey[800],
-                size: 60.h,
-              )),
-        ],
-      );
 }

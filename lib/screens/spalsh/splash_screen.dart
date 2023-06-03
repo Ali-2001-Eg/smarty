@@ -58,8 +58,8 @@ class _SplashScreenState extends State<SplashScreen>
               'Smarty',
               style: Theme.of(context)
                   .textTheme
-                  .headline2
-                  ?.copyWith(color: Colors.black),
+                  .displayMedium
+                  ?.copyWith(color: Colors.white),
             ),
           )
         ],

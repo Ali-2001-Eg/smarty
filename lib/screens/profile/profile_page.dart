@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/shared/widgets/my_drawer.dart';
 import 'package:graduation_project/shared/widgets/profile_body.dart';
 
-import '../../shared/widgets/custom_appBar.dart';
+import '../../shared/widgets/account_icon.dart';
+
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -11,13 +11,14 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      Container(
-        padding: EdgeInsets.only(top: 10.h),
-
-        child: const SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: ProfileBody(),
-        ),
+      Column(
+        children: [
+          const AccountIcon(),
+          Padding(
+            padding: EdgeInsets.only(bottom: 20.h),
+            child: const ProfileBody(),
+          ),
+        ],
       );
   }
 }

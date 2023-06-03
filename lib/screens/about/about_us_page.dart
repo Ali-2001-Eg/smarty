@@ -40,18 +40,18 @@ class _AboutUsPageState extends State<AboutUsPage>
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: const Color(0xffF7F9F6),
+      backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Get.back(),
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
-            color: Colors.white,
-            size: 30.h,
+            color: Color(0xff090A4A),
+
           ),
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xffF7F9F6),
+        backgroundColor: Colors.white,
         centerTitle: true,
         elevation: 0,
         bottomOpacity: 0,
@@ -60,7 +60,7 @@ class _AboutUsPageState extends State<AboutUsPage>
           style: Theme.of(context)
               .textTheme
               .headline3
-              ?.copyWith(color: const Color(0xffFEA633)),
+              ?.copyWith(color: const Color(0xff090A4A)),
         ),
         actions: const [
           // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
@@ -70,11 +70,11 @@ class _AboutUsPageState extends State<AboutUsPage>
           )
         ],
       ),
-      body: Container(
+      body: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Padding(
             padding: EdgeInsets.only(
-              top: 20.h,
+              top: 0.h,
             ),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -96,8 +96,8 @@ class _AboutUsPageState extends State<AboutUsPage>
                     appAboutUsSubTitleEn.tr,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headline6?.copyWith(
-                        color: const Color(0xffFEA633),
-                        fontWeight: FontWeight.w400),
+                        color: const Color(0xff090A4A),
+                        fontWeight: FontWeight.w500),
                   ),
                   _customRotationWithAnimation(
                       'assets/images/about_1.png', appOnlineAccessEn.tr),
@@ -160,7 +160,7 @@ class _AboutUsPageState extends State<AboutUsPage>
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color(0xff1A3993).withAlpha(100),
+        color: const Color(0xff1A3993),
       ),
       margin: EdgeInsets.all(20.w),
       padding:
@@ -198,7 +198,7 @@ class _AboutUsPageState extends State<AboutUsPage>
       margin: EdgeInsets.symmetric(horizontal: 20.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color(0xff1A3993).withAlpha(100),
+        color: const Color(0xff1A3993),
       ),
       child: Row(
         children: [
@@ -230,7 +230,8 @@ class _AboutUsPageState extends State<AboutUsPage>
                   style: Theme.of(context).textTheme.headline5?.copyWith(
                       color: Colors.white,
                       fontSize: 20.sp,
-                      decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.bold,
+                      // decoration: TextDecoration.underline,
                       decorationStyle: TextDecorationStyle.solid,
                       decorationColor: const Color(0xffFEA633)),
                 ),
@@ -238,10 +239,10 @@ class _AboutUsPageState extends State<AboutUsPage>
                   height: 15.h,
                 ),
                 Text(subHeadText,
-                    textAlign: TextAlign.end,
+                    textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText2
+                        .bodyMedium
                         ?.copyWith(color: Colors.white)),
               ],
             ),

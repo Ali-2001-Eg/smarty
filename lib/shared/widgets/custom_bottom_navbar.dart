@@ -90,7 +90,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               ),
               Container(),
                Text(
-                appProfileEn.tr,
+                'Profile',
                 style: const TextStyle(
                     fontWeight: FontWeight.w500, color: Colors.white70),
               ),

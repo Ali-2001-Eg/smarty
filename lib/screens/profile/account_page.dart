@@ -4,90 +4,101 @@ import 'package:get/get.dart';
 import 'package:graduation_project/controllers/user_controller.dart';
 import 'package:graduation_project/shared/constatns/locale_strings.dart';
 
-class AccountPage extends StatelessWidget {
-  AccountPage({Key? key}) : super(key: key);
-
-  final UserController _controller = Get.put(UserController());
-  final TextEditingController _currentPasswordController = TextEditingController();
-  final TextEditingController _newPasswordController = TextEditingController();
-  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+class CreateStudentAccountPage extends StatelessWidget {
+  const CreateStudentAccountPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final UserController _controller = Get.put(UserController());
+    final TextEditingController _nameController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+    final GlobalKey<FormState> _key = GlobalKey<FormState>();
     return Scaffold(
       resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
-        backgroundColor: const Color(0xffF7F9F6),
-        title: Text(appUpdateProfileEn.tr,
+        backgroundColor: const Color(0xff090A4A),
+        title: Text('Create Student Account',
             style: Theme.of(context)
                 .textTheme
-                .headlineMedium
+                .headlineSmall
                 ?.copyWith(color: Colors.white)),
         centerTitle: true,
         elevation: 0,
-        leading: IconButton(onPressed: ()=>Get.back(),icon: Icon(Icons.arrow_back_ios)),
+        leading: IconButton(
+            onPressed: () => Get.back(),
+            icon: const Icon(Icons.arrow_back_ios)),
         automaticallyImplyLeading: false,
-        actions:  const [
-          CircleAvatar(
-            radius: 25 ,
-            backgroundImage: AssetImage('assets/images/logo.png'),
-          )
-        ],
       ),
-      body: Container(),
-    );
-  }
-
-  Widget _immutableProfileWidget(
-    BuildContext context,
-    IconData icon,
-    String text,
-    String label,
-  ) =>
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin:
-                 EdgeInsets.only(top: 30.h, left: 15.w, right: 15.w, bottom: 5.h),
-            padding:  EdgeInsets.only(left: 25.w),
-            child: Text(
-              label,
-              style: const TextStyle(
-                color: Color(0xffFEA633),
-                decoration: TextDecoration.underline,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Create an account for your child to make him play games and study to overcome many learning difficulties',
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
+                  color:  Colors.grey[600]),
+              textAlign: TextAlign.justify,
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            TextFormField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                icon: const Icon(Icons.email),
+                hintText: appEmailOrUserNameEn.tr,
+                labelText: appEmailOrUserNameEn.tr,
+                border: const OutlineInputBorder(),
+              ),
+              onChanged: (value) {},
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                icon: const Icon(Icons.lock),
+                hintText: appPasswordEn.tr,
+                labelText: appPasswordEn.tr,
+                border: const OutlineInputBorder(),
+              ),
+              onChanged: (value) {
+                // print(value);
+              },
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            Center(
+              child: TextButton(
+                onPressed: (() {}),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 150.w,
+                  height: 35.h,
+                  child: Text(
+                    'Create',
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      color: Colors.white,
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xff090A4A),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
               ),
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              borderRadius: BorderRadius.circular(20 ),
-            ),
-            margin: EdgeInsets.only(top: 0, left: 15.w, right: 15.w),
-            padding:  EdgeInsets.all(10.w),
-            child: Row(
-              children: [
-                Icon(
-                  icon,
-                  color: Colors.white,
-                  size: 20.h,
-                ),
-                 SizedBox(
-                  width: 20.w,
-                ),
-                Expanded(
-                    child: Text(
-                  text,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5
-                      ?.copyWith(color: Colors.white),
-                )),
-              ],
-            ),
-          ),
-        ],
-      );
+          ],
+        ),
+      ),
+    );
+  }
 }

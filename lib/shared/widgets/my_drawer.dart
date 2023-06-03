@@ -1,14 +1,11 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/constatns/locale_strings.dart';
 
-
 import '../route_helper/route_helper.dart';
+
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
@@ -16,93 +13,107 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) => myDrawer(context);
 }
 
-Widget myDrawer(context,{fromGetStarted=true}) => Drawer(
-    backgroundColor: const Color(0xff17203a),
-    child: SingleChildScrollView(
+Widget myDrawer(context, {bool forStudent = true}) => Drawer(
+      backgroundColor: const Color(0xff17203a),
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 50.h,),
+          SizedBox(
+            height: 100.h,
+          ),
           //profile
           const ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Colors.white24,
-            child: Icon(CupertinoIcons.person,color: Colors.white,),
+            leading: CircleAvatar(
+              backgroundColor: Colors.white24,
+              child: Icon(
+                CupertinoIcons.person,
+                color: Colors.white,
+              ),
+            ),
+            title: Text(
+              'Ali Mazen',
+              style: TextStyle(color: Colors.white),
+            ),
+            subtitle: Text(
+              'alimazen@gmail.com',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
-            title: Text('Ali Mazen',style: TextStyle(color: Colors.white),),
-            subtitle: Text('alimazen@gmail.com',style: TextStyle(color: Colors.white),),
+          SizedBox(height: 30.h,),
 
-          ),
-          fromGetStarted?ListTile(
-            dense: true,
-            title:  Text(appProfileEn.tr,style: TextStyle(fontSize: 15.sp),),
-            leading: const Icon(CupertinoIcons.profile_circled),
-            onTap: () => Get.toNamed(RouteHelper.getAccountPage()),
-          ):Container(),
-          //Games
-          fromGetStarted?ListTile(
-            dense: true,
-            title:  Text(appGamesEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
+          !forStudent
+              ? ListTile(
+                  dense: true,
+                  title: Text(
+                    appProfileEn.tr,
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                  ),
+                  leading: const Icon(CupertinoIcons.profile_circled,
+                      color: Colors.white),
+                  onTap: () => Get.toNamed(RouteHelper.getAccountPage()),
+                )
+              : Container(),
 
-            leading: const Icon(Icons.games),
-            onTap: () => Get.toNamed(RouteHelper.getGamesPage()),
-          ):Container(),
-          //Chat
-          ListTile(
-            dense: true,
-            title:  Text(appChatEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(CupertinoIcons.chat_bubble_2,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getChatPage()),
-          ),
-          //Content
-          fromGetStarted?ListTile(
-            dense: true,
-            title:  Text(appContentEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(Icons.menu_book,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getEducationalContentPage()),
-          ):Container(),
           //Initial
-          ListTile(
-            dense: true,
-            title:  Text(appInitialAssessmentEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(CupertinoIcons.question_square_fill,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getInitialAssessmentPage()),
-          ),
+          forStudent
+              ? ListTile(
+                  dense: true,
+                  title: Text(
+                    appInitialAssessmentEn.tr,
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                  ),
+                  leading: const Icon(
+                    CupertinoIcons.question_square_fill,
+                    color: Colors.white,
+                  ),
+                  onTap: () =>
+                      Get.toNamed(RouteHelper.getInitialAssessmentPage()),
+                )
+              : Container(),
           //Final
-          ListTile(
-            dense: true,
-            title:  Text(appFinalAssessmentEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(CupertinoIcons.printer_fill,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getFinalAssessmentPage()),
-          ),
-          //Events
-          ListTile(
-            dense: true,
-            title:  Text(appEventEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(Icons.event_available,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getEventsPage()),
-          ),
-          //Settings
-          ListTile(
-            dense: true,
-            title:  Text(appSettingsEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(Icons.settings,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getSettingsPage()),
-          ),
+          forStudent
+              ? ListTile(
+                  dense: true,
+                  title: Text(
+                    appFinalAssessmentEn.tr,
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                  ),
+                  leading: const Icon(
+                    CupertinoIcons.printer_fill,
+                    color: Colors.white,
+                  ),
+                  onTap: () =>
+                      Get.toNamed(RouteHelper.getFinalAssessmentPage()),
+                )
+              : Container(),
           //About Us
           ListTile(
             dense: true,
-            title:  Text(appAboutUsEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(Icons.question_answer,color: Colors.white,),
+            title: Text(
+              appAboutUsEn.tr,
+              style: TextStyle(fontSize: 15.sp, color: Colors.white),
+            ),
+            leading: const Icon(
+              Icons.question_answer,
+              color: Colors.white,
+            ),
             onTap: () => Get.toNamed(RouteHelper.getAboutUsPage()),
           ),
           //Feedback
-          ListTile(
-            dense: true,
-            title:  Text(appFeedbackEn.tr,style: TextStyle(fontSize: 15.sp,color: Colors.white),),
-            leading: const Icon(Icons.feedback_outlined,color: Colors.white,),
-            onTap: () => Get.toNamed(RouteHelper.getFeedbackPage()),
-          ),
+          !forStudent
+              ? ListTile(
+                  dense: true,
+                  title: Text(
+                    appFeedbackEn.tr,
+                    style: TextStyle(fontSize: 15.sp, color: Colors.white),
+                  ),
+                  leading: const Icon(
+                    Icons.feedback_outlined,
+                    color: Colors.white,
+                  ),
+                  onTap: () => Get.toNamed(RouteHelper.getFeedbackPage()),
+                )
+              : Container(),
         ],
       ),
-    ),
-  );
+    );

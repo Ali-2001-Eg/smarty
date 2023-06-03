@@ -15,19 +15,21 @@ class HomeLayoutPage extends StatelessWidget {
     print(isStudent);
     return Scaffold(
       extendBody: true,
-      drawer: myDrawer(context, fromGetStarted: false),
+      backgroundColor: Colors.grey.shade50,
+      drawer: myDrawer(context, forStudent: isStudent),
       appBar: AppBar(
         backgroundColor: const Color(0xffF7F9F6),
         centerTitle: true,
         elevation: 0,
         bottomOpacity: 0,
+        iconTheme: IconThemeData(color:const Color(0xff090A4A),size: 20.h),
         // toolbarHeight: 200,
         title: Text(
           'Smarty',
           style: Theme.of(context)
               .textTheme
               .displaySmall
-              ?.copyWith(color: const Color(0xffFEA633)),
+              ?.copyWith(color:const Color(0xff090A4A)),
         ),
         actions: const [
           // IconButton(onPressed: (){}, icon: const Icon(Icons.search)),

@@ -60,4 +60,7 @@ const Map<String, String> ar = {
   appEfficiencyEn:appEfficiencyAr,
   appCuteEnvironmentEn:appCuteEnvironmentAr,
   appCoreSubTitleEn:appCoreSubTitleAr,
+  appLangEn:appLangAr,
+  langGamesEn:langGamesAr,
+  mathGamesEn:mathGamesAr
 };

@@ -5,7 +5,6 @@ import 'package:graduation_project/dependencies/auth_binding.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
 import 'package:graduation_project/screens/profile/account_page.dart';
-import 'package:graduation_project/screens/profile/notification_page.dart';
 import 'package:graduation_project/screens/profile/profile_page.dart';
 import 'package:graduation_project/screens/assessment_exams/final_assessment_page.dart';
 import 'package:graduation_project/screens/assessment_exams/initial_assessment_page.dart';
@@ -16,14 +15,13 @@ import 'package:graduation_project/screens/content/content_page.dart';
 import 'package:graduation_project/screens/profile/feedback_page.dart';
 import 'package:graduation_project/screens/games/games_page.dart';
 import 'package:graduation_project/screens/home/home_page.dart';
-import 'package:graduation_project/screens/profile/settings_page.dart';
 import 'package:graduation_project/screens/spalsh/splash_screen.dart';
 
 
 class RouteHelper {
   static const String initial = '/';
   static const String about = '/about';
-  static const String account = '/account';
+  static const String create_student_account = '/account';
   static const String initialAssessment = '/initial-assessment';
   static const String finalAssessment = '/final-assessment';
   static const String signIn = '/sign-in';
@@ -43,7 +41,7 @@ class RouteHelper {
 
   static String getInitialPage() => initial;
   static String getAboutUsPage() => about;
-  static String getAccountPage() => account;
+  static String getAccountPage() => create_student_account;
   static String getFinalAssessmentPage() => finalAssessment;
   static String getInitialAssessmentPage() => initialAssessment;
   static String getSignInPage() => signIn;
@@ -77,8 +75,8 @@ class RouteHelper {
         transition: Transition.rightToLeft),
     //account
     GetPage(
-        name: account,
-        page: () => AccountPage(),
+        name: create_student_account,
+        page: () => const CreateStudentAccountPage(),
         transition: Transition.rightToLeft),
     //initial assessment
     GetPage(
@@ -118,11 +116,7 @@ class RouteHelper {
         name: games,
         page: () => const GamesPage(),
         transition: Transition.rightToLeft),
-    //settings
-    GetPage(
-        name: settings,
-        page: () => const SettingsPage(),
-        transition: Transition.rightToLeft),
+
     //splash
     GetPage(
         name: splashScreen,
@@ -138,18 +132,14 @@ class RouteHelper {
     //forgot
     GetPage(
         name: forgotPassword,
-        page: () =>  ForgotPassword(),
+        page: () =>  const ForgotPassword(),
         transition: Transition.rightToLeft),
     //profile
     GetPage(
         name: profile,
         page: () => const ProfilePage(),
         transition: Transition.rightToLeft),
-    //notifications
-    GetPage(
-        name: notify,
-        page: () => const NotificationsPage(),
-        transition: Transition.rightToLeft),
+
   ];
 
   static List<GetPage> getRoutes() => routes;
