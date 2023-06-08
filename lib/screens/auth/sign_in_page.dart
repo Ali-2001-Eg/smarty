@@ -23,6 +23,7 @@ class SignInPage extends StatelessWidget {
         body: Stack(
           children: [
             GetBuilder<AuthController>(builder: (_) {
+              print(_.isStudent);
               return Center(
                 child: SingleChildScrollView(
                   child: Column(
@@ -30,7 +31,8 @@ class SignInPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 30.h),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 15.w, vertical: 30.h),
                         child: Text(
                           appWelcomeEn.tr,
                           textAlign: TextAlign.start,
@@ -112,11 +114,10 @@ class SignInPage extends StatelessWidget {
                                   ),
                                   TextButton(
                                     onPressed: (() {
-                                      CacheHelper.saveData(
-                                              key: 'token', value: true)
-                                          .then((value) => Get.off(() =>
-                                              const HomeLayoutPage(
-                                                  isStudent: false)));
+                                      CacheHelper.setBool('student', false)
+                                          .then((value) => Get.offAll(
+                                          HomeLayoutPage(
+                                              isStudent: _.isStudent)));
                                     }),
                                     child: Container(
                                       alignment: Alignment.center,
@@ -181,7 +182,8 @@ class SignInPage extends StatelessWidget {
                                         border: Border.all(
                                             color: const Color(0xffFEA633),
                                             width: 2),
-                                        borderRadius: BorderRadius.circular(15)),
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
                                     child: OTPTextField(
                                       keyboardType: TextInputType.phone,
                                       controller: otpController,
@@ -195,8 +197,10 @@ class SignInPage extends StatelessWidget {
                                           fontSize: 20.sp,
                                           fontWeight: FontWeight.bold),
                                       onCompleted: (value) {
-                                        Get.off(() => const HomeLayoutPage(
-                                            isStudent: true));
+                                        CacheHelper.setBool('student', true)
+                                            .then((value) => Get.offAll(
+                                                HomeLayoutPage(
+                                                    isStudent: _.isStudent)));
                                       },
                                     ),
                                   ),
@@ -204,8 +208,9 @@ class SignInPage extends StatelessWidget {
                                     height: 20.h,
                                   ),
                                   TextButton(
-                                      onPressed: () => Get.find<AuthController>()
-                                          .changeLoginRoles(),
+                                      onPressed: () =>
+                                          Get.find<AuthController>()
+                                              .changeLoginRoles(),
                                       child: Text(
                                         appHaveUserNameOrEmailEn.tr,
                                         style: TextStyle(fontSize: 15.sp),

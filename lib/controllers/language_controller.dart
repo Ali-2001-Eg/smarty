@@ -8,11 +8,11 @@ class LanguageController extends GetxController {
   // to get locale as soon as the application launch
   @override
   void onInit() async {
-    locale =  getLanguage;
+    locale =  getLanguage??eng;
     super.onInit();
   }
 
-  String get getLanguage {
+  String? get getLanguage {
     return CacheHelper.getData(key: 'lang');
   }
 

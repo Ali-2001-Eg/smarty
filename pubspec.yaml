@@ -40,7 +40,7 @@ dependencies:
   webview_flutter: ^4.0.7
   flutter_screenutil: ^5.7.0
   carousel_slider: ^4.2.1
-
+  url_launcher:
 
 
 

@@ -15,9 +15,17 @@ class CacheHelper {
   }
 
 //get the key of mode status on the main method
-  static  getData({required String key}) {
+  static getData({required String key}) {
     //dynamic because we don't know the type returned
     return sharedPreferences.get(key);
+  }
+
+  static bool? getBool(String key) {
+    return sharedPreferences.getBool(key);
+  }
+
+  static Future<bool> setBool(String key, bool value) async{
+    return await sharedPreferences.setBool(key, value);
   }
 
   static Future<bool> saveData(
@@ -33,6 +41,7 @@ class CacheHelper {
   }) async {
     return await sharedPreferences.remove(key);
   }
+
   static Future<bool> clear() async {
     return await sharedPreferences.clear();
   }

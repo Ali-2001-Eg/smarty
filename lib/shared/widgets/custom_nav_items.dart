@@ -7,7 +7,7 @@ class CustomNavItem extends StatelessWidget {
   final Function setPage;
 
   const CustomNavItem(
-      {required this.setPage, required this.icon, required this.id});
+      {Key? key, required this.setPage, required this.icon, required this.id}) : super(key: key);
 
 
   @override

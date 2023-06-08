@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/controllers/auth_controller.dart';
 import 'package:graduation_project/dependencies/auth_binding.dart';
+import 'package:graduation_project/dependencies/exams_controller.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
-import 'package:graduation_project/screens/profile/account_page.dart';
+import 'package:graduation_project/screens/profile/create_student_account_page.dart';
 import 'package:graduation_project/screens/profile/profile_page.dart';
 import 'package:graduation_project/screens/assessment_exams/final_assessment_page.dart';
 import 'package:graduation_project/screens/assessment_exams/initial_assessment_page.dart';
@@ -16,7 +17,6 @@ import 'package:graduation_project/screens/profile/feedback_page.dart';
 import 'package:graduation_project/screens/games/games_page.dart';
 import 'package:graduation_project/screens/home/home_page.dart';
 import 'package:graduation_project/screens/spalsh/splash_screen.dart';
-
 
 class RouteHelper {
   static const String initial = '/';
@@ -63,9 +63,9 @@ class RouteHelper {
     GetPage(
         name: initial,
         page: () {
-          return  HomeLayoutPage(
-          isStudent: Get.find<AuthController>().isStudent,
-        );
+          return HomeLayoutPage(
+            isStudent: Get.find<AuthController>().isStudent!,
+          );
         },
         transition: Transition.rightToLeft),
     //about
@@ -80,25 +80,29 @@ class RouteHelper {
         transition: Transition.rightToLeft),
     //initial assessment
     GetPage(
-        name: initialAssessment,
-        page: () => const InitialAssessmentPage(),
-        transition: Transition.rightToLeft),
+      name: initialAssessment,
+      page: () => const InitialAssessmentPage(),
+      transition: Transition.rightToLeft,
+      bindings: [ExamsBindings()],
+    ),
     //final assessment
     GetPage(
-        name: finalAssessment,
-        page: () => const FinalAssessmentPage(),
-        transition: Transition.rightToLeft),
+      name: finalAssessment,
+      page: () => const FinalAssessmentPage(),
+      transition: Transition.rightToLeft,
+      bindings: [ExamsBindings()],
+    ),
     //sign in
     GetPage(
       name: signIn,
-      page: () =>   const SignInPage(),
+      page: () => const SignInPage(),
       transition: Transition.rightToLeft,
       binding: AuthBinding(),
     ),
     //sign up
     GetPage(
         name: signUp,
-        page: () =>  SignUpPage(),
+        page: () => SignUpPage(),
         transition: Transition.rightToLeft),
 
     //content
@@ -123,7 +127,6 @@ class RouteHelper {
         page: () => const SplashScreen(),
         transition: Transition.rightToLeft),
 
-
     //on boarding
     GetPage(
         name: onBoarding,
@@ -132,14 +135,13 @@ class RouteHelper {
     //forgot
     GetPage(
         name: forgotPassword,
-        page: () =>  const ForgotPassword(),
+        page: () => const ForgotPassword(),
         transition: Transition.rightToLeft),
     //profile
     GetPage(
         name: profile,
         page: () => const ProfilePage(),
         transition: Transition.rightToLeft),
-
   ];
 
   static List<GetPage> getRoutes() => routes;

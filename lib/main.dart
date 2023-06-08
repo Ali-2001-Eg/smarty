@@ -15,9 +15,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   //to remove local storage
-  // CacheHelper.clearData(key: 'token');
-  // CacheHelper.clearData(key: 'onBoarding');
-  // CacheHelper.clearData(key: 'getStarted');
+  // CacheHelper.remove(key: 'student');
+  // CacheHelper.remove(key: 'onBoarding');
+  // CacheHelper.remove(key: 'student');
   //to remove status bar
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));

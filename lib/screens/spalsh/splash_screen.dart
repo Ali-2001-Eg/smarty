@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:graduation_project/screens/home/home_page.dart';
 import 'package:graduation_project/shared/route_helper/route_helper.dart';
-
-import '../../on_boarding/on_boarding_page.dart';
 import '../../shared/cache_helper/cache_helper.dart';
-import '../auth/sign_in_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -69,18 +67,18 @@ class _SplashScreenState extends State<SplashScreen>
 
   //to dispose viewing some pages more than once
   void goToWidget() {
-    var onBoarding = CacheHelper.getData(key: 'onBoarding');
-    var token = CacheHelper.getData(key: 'token');
+    // var onBoarding = CacheHelper.getData(key: 'onBoarding');
 
+    bool? role = CacheHelper.getBool('student');
+    print('role is $role');
 //to determine which widget will start the app
-    if (onBoarding != '') {
-      if (token != '') {
-        Get.offNamed(RouteHelper.getInitialPage());
-      } else {
-        Get.offNamed(RouteHelper.getSignInPage());
-      }
+
+    if (role == null) {
+      Get.offAllNamed(RouteHelper.getOnBoardingPage());
+    } else if (role) {
+      Get.offAll(() => const HomeLayoutPage(isStudent: true));
     } else {
-      Get.offNamed(RouteHelper.getOnBoardingPage());
+      Get.offAll(() => const HomeLayoutPage(isStudent: false));
     }
   }
 }
