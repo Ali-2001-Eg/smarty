@@ -62,5 +62,11 @@ const Map<String, String> ar = {
   appCoreSubTitleEn:appCoreSubTitleAr,
   appLangEn:appLangAr,
   langGamesEn:langGamesAr,
-  mathGamesEn:mathGamesAr
+  mathGamesEn:mathGamesAr,
+  profileEn:profileAr,
+  firstSemesterEn:firstSemesterAr,
+  secondSemesterEn:secondSemesterAr,
+  logoutDialogEn:logoutDialogAr,
+  createDescriptionEn:createDescriptionAr,
+  briefFeedbackEn:briefFeedbackAr
 };

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:graduation_project/controllers/auth_controller.dart';
 import 'package:graduation_project/dependencies/auth_binding.dart';
 import 'package:graduation_project/dependencies/exams_controller.dart';
+import 'package:graduation_project/get_started/get_started_page.dart';
 import 'package:graduation_project/on_boarding/on_boarding_page.dart';
 import 'package:graduation_project/screens/about/about_us_page.dart';
 import 'package:graduation_project/screens/profile/create_student_account_page.dart';
@@ -63,9 +64,7 @@ class RouteHelper {
     GetPage(
         name: initial,
         page: () {
-          return HomeLayoutPage(
-            isStudent: Get.find<AuthController>().isStudent!,
-          );
+          return const GetStartedPage();
         },
         transition: Transition.rightToLeft),
     //about
@@ -95,14 +94,14 @@ class RouteHelper {
     //sign in
     GetPage(
       name: signIn,
-      page: () => const SignInPage(),
+      page: () => SignInPage(),
       transition: Transition.rightToLeft,
       binding: AuthBinding(),
     ),
     //sign up
     GetPage(
         name: signUp,
-        page: () => SignUpPage(),
+        page: () =>  SignUpPage(),
         transition: Transition.rightToLeft),
 
     //content
@@ -125,7 +124,7 @@ class RouteHelper {
     GetPage(
         name: splashScreen,
         page: () => const SplashScreen(),
-        transition: Transition.rightToLeft),
+        transition: Transition.rightToLeft,binding: AuthBinding()),
 
     //on boarding
     GetPage(
@@ -141,6 +140,12 @@ class RouteHelper {
     GetPage(
         name: profile,
         page: () => const ProfilePage(),
+        transition: Transition.rightToLeft),
+    GetPage(
+        name: homeLayout,
+        page: () => HomeLayoutPage(
+              isStudent: Get.find<AuthController>().isStudent!,
+            ),
         transition: Transition.rightToLeft),
   ];
 

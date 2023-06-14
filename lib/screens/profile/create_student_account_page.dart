@@ -16,7 +16,7 @@ class CreateStudentAccountPage extends StatelessWidget {
       backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
         backgroundColor: const Color(0xff090A4A),
-        title: Text('Create Student Account',
+        title: Text(appProfileEn.tr,
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall
@@ -37,7 +37,7 @@ class CreateStudentAccountPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Create an account for your child to make him play games and study to overcome many learning difficulties',
+                createDescriptionEn.tr,
                 style: TextStyle(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
@@ -84,7 +84,7 @@ class CreateStudentAccountPage extends StatelessWidget {
                     width: 150.w,
                     height: 35.h,
                     child: Text(
-                      'Create',
+                      appSignupEn.tr,
                       style: TextStyle(
                         fontSize: 18.sp,
                         color: Colors.white,

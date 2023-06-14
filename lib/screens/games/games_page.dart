@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/shared/constatns/locale_strings.dart';
-import 'package:graduation_project/shared/widgets/web_view_screen.dart';
 import '../../models/games_model.dart';
 import '../../shared/widgets/game_item.dart';
 
+import '../../shared/widgets/web_view_screen.dart';
 class GamesPage extends StatelessWidget {
   const GamesPage({Key? key}) : super(key: key);
 
@@ -24,21 +24,24 @@ class GamesPage extends StatelessWidget {
           elevation: 0,
           toolbarHeight: MediaQuery.of(context).size.height / 120,
           backgroundColor: Colors.grey.shade50,
-          bottom: TabBar(
-
-              indicatorColor: const Color(0xff090A4A),tabs: [
+          bottom: TabBar(indicatorColor: const Color(0xff090A4A), tabs: [
             Tab(
               child: Text(
                 mathGamesEn.tr,
-                style:  TextStyle(color: const Color(0xff090A4A),letterSpacing: 0,fontSize: 15.sp),
+                style: TextStyle(
+                    color: const Color(0xff090A4A),
+                    letterSpacing: 0,
+                    fontSize: 15.sp),
               ),
               icon: const Icon(Icons.add, color: Color(0xff090A4A)),
             ),
             Tab(
               child: Text(
                 langGamesEn.tr,
-                style:  TextStyle(color: const Color(0xff090A4A),letterSpacing: 0,fontSize: 15.sp),
-
+                style: TextStyle(
+                    color: const Color(0xff090A4A),
+                    letterSpacing: 0,
+                    fontSize: 15.sp),
               ),
               icon: const Icon(Icons.menu_book, color: Color(0xff090A4A)),
             ),
@@ -50,6 +53,7 @@ class GamesPage extends StatelessWidget {
           child: TabBarView(
             physics: const BouncingScrollPhysics(),
             children: [
+
               ListView.builder(
                 padding: EdgeInsets.only(bottom: 50.h),
                 itemCount: mathItems.length,
@@ -80,8 +84,9 @@ class GamesPage extends StatelessWidget {
     BuildContext context,
   ) {
     return InkWell(
-        onTap: () {
-          Get.to(() => WebViewScreen(url: item.gameUrl!));
+        onTap: () async {
+          // Get.to(() => WebViewScreen(url: item.gameUrl!));
+
         },
         child: Column(
           children: [
@@ -100,16 +105,16 @@ class GamesPage extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(right: 20.w, top: 10.h),
-                    height: 220.h,
+                    height: 200.h,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
                           item.imagePath!,
                         ),
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.circular(30),
-                      color: Colors.purple,
+                      // color: Colors.purple,
                     ),
                   ),
                 ],
@@ -118,4 +123,6 @@ class GamesPage extends StatelessWidget {
           ],
         ));
   }
+
+
 }

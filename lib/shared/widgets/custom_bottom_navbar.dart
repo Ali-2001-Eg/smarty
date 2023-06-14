@@ -4,13 +4,10 @@ import 'package:get/get.dart';
 import 'package:graduation_project/shared/constatns/locale_strings.dart';
 import 'package:graduation_project/shared/widgets/bottom_wave_clipper.dart';
 
-import '../../main.dart';
 import 'custom_nav_items.dart';
-
 
 PageController pageController = PageController(initialPage: 0);
 int currentIndex = 0;
-
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);
@@ -21,9 +18,6 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-
-
-
   setPage() {
     setState(() {
       pageController.jumpToPage(currentIndex);
@@ -77,22 +71,22 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-               Text(
+              Text(
                 appContentEn.tr,
                 style: const TextStyle(
-                    fontWeight: FontWeight.w500, color: Colors.white70),
+                    fontWeight: FontWeight.bold, color: Colors.white70),
               ),
               Container(),
-               Text(
+              Text(
                 appGamesEn.tr,
                 style: const TextStyle(
-                    fontWeight: FontWeight.w500, color: Colors.white70),
+                    fontWeight: FontWeight.bold, color: Colors.white70),
               ),
               Container(),
-               Text(
-                'Profile',
+              Text(
+                profileEn.tr,
                 style: const TextStyle(
-                    fontWeight: FontWeight.w500, color: Colors.white70),
+                    fontWeight: FontWeight.bold, color: Colors.white70),
               ),
             ],
           ),

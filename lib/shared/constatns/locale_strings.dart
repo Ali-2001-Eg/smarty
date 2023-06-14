@@ -1,5 +1,7 @@
-const String appWelcomeEn = 'Sign in to track your children\'s level of overcoming learning difficulties!';
-const String appWelcomeAr = "قم بتسجيل الدخول لتتابع مستوى أطفالك في تغلبهم علي صعوبات التعلم!";
+const String appWelcomeEn =
+    'Sign in to track your children\'s level of overcoming learning difficulties!';
+const String appWelcomeAr =
+    "قم بتسجيل الدخول لتتابع مستوى أطفالك في تغلبهم علي صعوبات التعلم!";
 const String appEmailOrUserNameEn = 'Email or username';
 const String appEmailOrUserNameAr = 'الإيميل أو الإسم الشخصي';
 const String appPasswordEn = 'Password';
@@ -31,7 +33,7 @@ const String appParentAr = 'ولي أمر';
 const String appSendResetLinkToEmailEn = 'Send Reset Link To Email!';
 const String appSendResetLinkToEmailAr = 'إرسال رابط للإيميل!';
 const String appSendResetLinkEn = 'Send Reset Link';
-const String appSendResetLinkAr = 'إرسال الرابط';
+const String appSendResetLinkAr = 'أدخل الايميل لتغيير كلمة المرور';
 const String appReturnHomeEn = 'Return Home';
 const String appReturnHomeAr = 'العودة لصفحة تسجيل الدخول';
 const String appCreateAccountEn = 'Create Account';
@@ -99,6 +101,7 @@ const String appConfirmAr = 'تأكيد';
 const String appDeleteAlertMessageEn =
     'Are you sure you wish to delete this message?';
 const String appDeleteAlertMessageAr = 'هل أنت متأكد أنك تريد حذف هذه الرسالة؟';
+//about us
 const String appPlayAsYouWantEn = 'Play as you learn';
 const String appPlayAsYouWantAr = 'العب وأنت تتعلم';
 const String appAboutUsSubTitleEn =
@@ -123,9 +126,27 @@ const String appEfficiencyEn = 'Efficiency and Effectiveness';
 const String appEfficiencyAr = 'التأثير و الكفائة';
 const String appCuteEnvironmentEn = 'Cute Environment';
 const String appCuteEnvironmentAr = 'بيئة لطيفة';
-const String appCoreSubTitleEn = 'Prissy expectant involuntarily limpet until cobra less dear so overabundant contagio';
-const String appCoreSubTitleAr = 'المنصة التطاوعية تساعدنا في معرفة حجم صعوبات تعلم طفلك و يوجد بحوث علمية للتغلب عليها.';
+const String appCoreSubTitleEn =
+    'Prissy expectant involuntarily limpet until cobra less dear so overabundant contagio';
+const String appCoreSubTitleAr =
+    'المنصة التطاوعية تساعدنا في معرفة حجم صعوبات تعلم طفلك و يوجد بحوث علمية للتغلب عليها.';
 const String mathGamesEn = 'Math Games';
 const String mathGamesAr = 'ألعاب الرياضيات';
 const String langGamesEn = 'Language Games';
 const String langGamesAr = 'ألعاب اللغات';
+const String emailInValid = 'أدخل بريد الكتروني صحيح';
+const String passInValid = 'كلمه المرور ضعيفة';
+const String nameInValid = 'أدخل اسم شخصي صحيح';
+const String profileEn = 'Profile';
+const String profileAr = 'حسابي';
+const String firstSemesterEn = 'Semester One';
+const String secondSemesterEn = 'Semester Two';
+const String firstSemesterAr = 'الترم الأول';
+const String secondSemesterAr = 'الترم الثاني';
+const String logoutDialogEn = 'Are you sure you want to logout?';
+const String logoutDialogAr = 'هل تريد تسجيل الخروج؟';
+const String createDescriptionAr = 'بتكوينك حساب للطالب ستوفر لطفلك فرصة للتعلم بدون ملل لتساعده علي مواجهة صعوبات التعلم';
+const String createDescriptionEn = 'Create an account for your child to make him play games and study to overcome many learning difficulties';
+const String briefFeedbackEn = 'Please briefly describe the issue';
+const String briefFeedbackAr = 'من فضلك عبر عن مشكلتك باختصار';
+

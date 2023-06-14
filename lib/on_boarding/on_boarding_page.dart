@@ -29,18 +29,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   List<BoardingModel> boarding = [
     BoardingModel(
-        title: 'Our Kindergarten Anniversary',
+        title: 'ساعد أطفالك',
         image: 'assets/images/on_boarding_3.png',
         body:
-            'The perfect class for your child with the best staff and best teachers.'),
+            'المكان المميز لجعل أطفالك يمرحون مع التعلم.'),
     BoardingModel(
-        title: 'Drawing and Painting Lessons',
+        title: 'تعلم بجد!',
         image: 'assets/images/on_boarding_2.png',
-        body: 'we provided sections to improve Our Student Imagination and Creativity'),
+        body: 'ساعد أطفالك في إطلاق سراح خيالهم ليتغلبوا على صعوبات التعلم.'),
     BoardingModel(
-        title: 'Determine Student Learning Difficulty',
+        title: 'مهارة التدريس',
         image: 'assets/images/on_boarding_1.png',
-        body: 'Our Exams Walks Through Scientific laws and standards'),
+        body: 'اختبر أطفالك لتتأكد من سبب تأخرهم عن زمائلهم في الدراسة'),
   ];
 
   void submit() {
@@ -59,11 +59,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              TextButton(
-                  onPressed: () {
-                    submit();
-                  },
-                  child: const Text('SKIP')),
+              Padding(
+                padding: const EdgeInsets.all(.0),
+                child: TextButton(
+                    onPressed: () {
+                      submit();
+                    },
+
+                    child: const Text('تخطي',style: TextStyle(color: Color(0xff4EB783),fontSize: 15,decoration: TextDecoration.none),)),
+              ),
               Expanded(
                 child: PageView.builder(
                   itemBuilder: (context, index) =>
@@ -96,7 +100,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     effect: const ExpandingDotsEffect(
                         dotColor: Colors.grey,
                         dotHeight: 10.0,
-                        activeDotColor: Colors.blue,
+                        activeDotColor:  Color(0xff4EB783),
                         expansionFactor: 4.0,
                         dotWidth: 10.0,
                         spacing: 5.0),
@@ -104,6 +108,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   //to position the last element in the last space
                   const Spacer(),
                   FloatingActionButton(
+                    backgroundColor: const Color(0xff4EB783),
                     onPressed: () {
                       if (isLast == true) {
                         submit();
@@ -116,7 +121,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         );
                       }
                     },
-                    child: const Icon(Icons.arrow_forward_ios),
+                    child: const Icon(Icons.arrow_forward_ios,color: Colors.white,),
                   )
                 ],
               )

@@ -12,10 +12,11 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return
       Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const AccountIcon(),
           Padding(
-            padding: EdgeInsets.only(bottom: 20.h),
+            padding: EdgeInsets.only(bottom: 50.h),
             child: const ProfileBody(),
           ),
         ],

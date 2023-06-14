@@ -8,10 +8,11 @@ class AccountIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150.h,
-      width: 150.w,
-      child: const CircleAvatar(
+    return const SizedBox(
+      // height: 150.h,
+      // width: 150.w,
+      child: CircleAvatar(
+        radius:  80,
         backgroundImage: AssetImage("assets/images/student_icon.png"),
         backgroundColor: Colors.transparent,
       ),

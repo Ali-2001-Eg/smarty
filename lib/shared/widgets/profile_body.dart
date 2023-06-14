@@ -16,38 +16,70 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+
       children: [
         // SizedBox(height: 20.h),
-        ProfileMenu(
+        (CacheHelper.getBool('student')!)?ProfileMenu(
           text: appProfileEn.tr,
           icon: Icons.person,
           press: () => {Get.toNamed(RouteHelper.getAccountPage())},
-        ),
-        ProfileMenu(
+        ):Container(),
+       (CacheHelper.getBool('student')!)?ProfileMenu(
           text: appFeedbackEn.tr,
           icon: Icons.question_mark,
           press: () {
             Get.toNamed(RouteHelper.getFeedbackPage());
           },
           color: const Color(0xff090A4A),
-        ),
+        ):Container(),
         ProfileMenu(
           text: appLogoutEn.tr,
           icon: Icons.logout,
           color: const Color(0xFFee7b64),
           press: () {
-            CacheHelper.remove(key: 'token');
-            CacheHelper.remove(key: 'onBoarding');
-            Get.offAllNamed(RouteHelper.getSignInPage());
+            showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => AlertDialog(
+                      title: Text(
+                        appLogoutEn.tr,
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                      content: Text(logoutDialogEn.tr),
+                      actions: [
+                        IconButton(
+                            onPressed: () => Navigator.pop(context),
+                            icon: const Icon(
+                              Icons.cancel,
+                              color: Colors.red,
+                            )),
+                        IconButton(
+                          onPressed: () async {
+                            CacheHelper.remove(key: 'student');
+                            CacheHelper.remove(key: 'onBoarding');
+                            // CacheHelper.remove(key: 'lang');
+                            Get.offAllNamed(RouteHelper.getSignInPage());
+                          },
+                          icon: const Icon(
+                            Icons.done,
+                            color: Colors.green,
+                          ),
+                        )
+                      ],
+                    ));
           },
         ),
+        SizedBox(
+          height: 50.h,
+        ),
+
         GetBuilder<LanguageController>(
           builder: (langController) {
             return Padding(
               padding: EdgeInsets.all(8.0.w),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Row(
                     children: [
@@ -71,8 +103,8 @@ mainAxisAlignment: MainAxisAlignment.center,
                         EdgeInsets.symmetric(horizontal: 6.h, vertical: 2.w),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          color: const Color(0xffFEA633), width: 2),
+                      border:
+                          Border.all(color: const Color(0xffFEA633), width: 2),
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<String>(

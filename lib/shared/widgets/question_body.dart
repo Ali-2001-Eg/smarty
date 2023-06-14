@@ -13,33 +13,35 @@ class QuestionBody extends GetView<InitialExamController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      SingleChildScrollView(
-        padding: EdgeInsets.only(top: 25.h),
+    return Stack(alignment: Alignment.bottomCenter,children: [
+      Padding(
+        padding:  EdgeInsets.only(top: Get.height/5),
         child: Column(
           children: [
             Text(
               question,
               style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700),
             ),
-            ListView.separated(
-              shrinkWrap: true,
-              padding: EdgeInsets.only(top: 25.h),
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: answer.length,
-              separatorBuilder: (context, index) => SizedBox(
-                height: 10.h,
+            Expanded(
+              child: ListView.separated(
+                shrinkWrap: true,
+                padding: EdgeInsets.only(top: 25.h),
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: answer.length,
+                separatorBuilder: (context, index) => SizedBox(
+                  height: 10.h,
+                ),
+                itemBuilder: (context, index) {
+                  final answers = answer[index];
+                  return AnswerCard(
+                    answer: '${answers['identifier']}. ${answers['answer']}',
+                    onTap: () {
+                      controller.selectedAnswers(answers['identifier']);
+                    },
+                    isSelected: false,
+                  );
+                },
               ),
-              itemBuilder: (context, index) {
-                final answers = answer[index];
-                return AnswerCard(
-                  answer: '${answers['identifier']}. ${answers['answer']}',
-                  onTap: () {
-                    controller.selectedAnswers(answers['identifier']);
-                  },
-                  isSelected: false,
-                );
-              },
             ),
           ],
         ),
